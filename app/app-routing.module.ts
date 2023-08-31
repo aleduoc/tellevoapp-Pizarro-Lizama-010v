@@ -22,7 +22,11 @@ const routes: Routes = [
   {
     path: 'tipo-user',
     loadChildren: () => import('./pages/tipo-user/tipo-user.module').then( m => m.TipoUserPageModule)
+  },  {
+    path: 'informacion',
+    loadChildren: () => import('./pages/informacion/informacion.module').then( m => m.InformacionPageModule)
   },
+
   
 ];
 

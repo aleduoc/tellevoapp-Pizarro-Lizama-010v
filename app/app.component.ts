@@ -30,6 +30,11 @@ export class AppComponent {
       redirecTo: '/tipo-user',
       icon: 'home-outline'
     },
+    {
+      name: 'Informacion',
+      redirecTo: '/informacion',
+      icon: 'information-circle-outline'
+    },
 
   
   ]
