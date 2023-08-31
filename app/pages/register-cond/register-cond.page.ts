@@ -11,7 +11,6 @@ export class RegisterCondPage implements OnInit {
   constructor(private menuController: MenuController) { }
 
   usuario = {
-    nombre: '',
     email: '',
     sede: '',
     rut: '',
@@ -29,7 +28,6 @@ export class RegisterCondPage implements OnInit {
 
   Confirmar() {
     console.log('Confirmado')
-    this.usuario.nombre='';
     this.usuario.email='';
     this.usuario.sede='';
     this.usuario.rut='';

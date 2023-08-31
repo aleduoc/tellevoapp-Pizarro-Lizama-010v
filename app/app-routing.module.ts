@@ -34,6 +34,10 @@ const routes: Routes = [
     path: 'register-pasaj',
     loadChildren: () => import('./pages/register-pasaj/register-pasaj.module').then( m => m.RegisterPasajPageModule)
   },
+  {
+    path: 'newpass',
+    loadChildren: () => import('./pages/newpass/newpass.module').then( m => m.NewpassPageModule)
+  },
 
 ];
 
