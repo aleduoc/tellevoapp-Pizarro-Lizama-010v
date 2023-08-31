@@ -7,4 +7,25 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   constructor() {}
+
+
+  componentes : Componente[] =[
+    {
+      name: 'Inicio',
+      redirecTo: '/inicio',
+      icon: 'invert-mode-outline'
+    },
+  
+  ]
+
 }
+
+interface Componente{
+  icon: string;
+  name: string;
+  redirecTo: string;
+}
+
+
+
+
