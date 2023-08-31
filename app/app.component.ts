@@ -33,13 +33,19 @@ export class AppComponent {
     {
       name: 'RegisterCond',
       redirecTo: '/register-cond',
-      icon: 'home-outline'
+      icon: 'information-circle-outline'
     },
     {
       name: 'Informacion',
       redirecTo: '/informacion',
       icon: 'information-circle-outline'
     },
+    {
+      name: 'RegisterPasaj',
+      redirecTo: '/register-pasaj',
+      icon: 'information-circle-outline'
+    },
+
 
   ]
 

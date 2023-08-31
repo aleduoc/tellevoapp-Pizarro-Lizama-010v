@@ -24,9 +24,17 @@ const routes: Routes = [
     loadChildren: () => import('./pages/tipo-user/tipo-user.module').then( m => m.TipoUserPageModule)
   },
   {
+    path: 'register-cond',
+    loadChildren: () => import('./pages/register-cond/register-cond.module').then( m => m.RegisterCondPageModule)
+  },
+  {
     path: 'informacion',
     loadChildren: () => import('./pages/informacion/informacion.module').then( m => m.InformacionPageModule)
+  },  {
+    path: 'register-pasaj',
+    loadChildren: () => import('./pages/register-pasaj/register-pasaj.module').then( m => m.RegisterPasajPageModule)
   },
+
 ];
 
 @NgModule({

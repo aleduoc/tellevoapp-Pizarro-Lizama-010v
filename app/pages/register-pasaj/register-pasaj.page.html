@@ -1,0 +1,88 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="MostrarMenu()">
+        <ion-icon slot="icon-only" name="menu-outline" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+
+    <ion-title>RegisterPasaj</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">RegisterPasaj</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    
+    <ion-card-header>
+      <ion-card-title>Registrar Usuario</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      
+      <form #formulario="ngForm" (keyup.enter)="Confirmar()">
+
+        <ion-list>
+          
+          <ion-item>
+            <ion-label position="floating">Nombre Completo: </ion-label>
+            <ion-input type="text" placeholder="Nombre completo" name="nombre" [(ngModel)]="usuario.nombre"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Email: </ion-label>
+            <ion-input type="email" placeholder="@duocuc.cl" name="email" [(ngModel)]="usuario.email"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Sede: </ion-label>
+            <ion-select aria-label="Fruit" interface="action-sheet" placeholder="Selecione Sede">
+              <ion-select-option value="alameda">Alameda</ion-select-option>
+              <ion-select-option value="antonio-varas">Antonio Varas</ion-select-option>
+              <ion-select-option value="maipu">Maipú</ion-select-option>
+              <ion-select-option value="melipilla">Melipilla</ion-select-option>
+              <ion-select-option value="alonso-valle">Padre Alonso de Ovalle</ion-select-option>
+              <ion-select-option value="plaza-oeste">Plaza Oeste</ion-select-option>
+              <ion-select-option value="plaza-vespucio">Plaza Vespucio</ion-select-option>
+              <ion-select-option value="plaza-norte">Plaza Norte</ion-select-option>
+              <ion-select-option value="puente-alto">Puente Alto</ion-select-option>
+              <ion-select-option value="san-bernardo">San Bernardo</ion-select-option>
+              <ion-select-option value="apoquindo">San Carlos de Apoquindo</ion-select-option>
+              <ion-select-option value="san-joaquin">San Joaquín</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Rut: </ion-label>
+            <ion-input type="text" placeholder="Rut" name="rut" [(ngModel)]="usuario.rut"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Contraseña: </ion-label>
+            <ion-input type="password" placeholder="Contraseña" name="password" [(ngModel)]="usuario.password"></ion-input>
+          </ion-item>
+
+          
+
+        </ion-list>
+
+        <ion-button (click)="Confirmar()" expand="block" fill="solid" color="primary" shape="round">
+          Confirmar
+        </ion-button>
+
+
+
+      </form>
+
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>
