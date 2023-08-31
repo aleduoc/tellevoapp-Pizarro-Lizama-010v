@@ -16,14 +16,9 @@ export class AppComponent {
       icon: 'invert-mode-outline'
     },
     {
-      name: 'Login',
-      redirecTo: '/login',
-      icon: 'invert-mode-outline'
-    },
-    {
-      name: 'TipoUser',
-      redirecTo: '/tipo-user',
-      icon: 'invert-mode-outline'
+      name: 'Home',
+      redirecTo: '/home',
+      icon: 'home-outline'
     },
   
   ]
