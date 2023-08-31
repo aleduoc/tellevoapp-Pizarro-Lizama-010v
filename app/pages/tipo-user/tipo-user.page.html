@@ -13,16 +13,16 @@
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
-    <ion-toolbar>
+    <ion-toolbar> 
       <ion-title size="large">TipoUser</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-button expand="block" fill="solid" color="primary" shape="round">
+  <ion-button [routerLink]="['/register-pasaj']" expand="block" fill="solid" color="primary" shape="round">
     Pasajero
   </ion-button>
 
-  <ion-button expand="block" fill="solid" color="warning" shape="round">
+  <ion-button [routerLink]="['/register-cond']" expand="block" fill="solid" color="warning" shape="round">
     Conductor
   </ion-button>
 
