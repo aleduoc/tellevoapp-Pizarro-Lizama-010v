@@ -23,10 +23,8 @@ const routes: Routes = [
     path: 'tipo-user',
     loadChildren: () => import('./pages/tipo-user/tipo-user.module').then( m => m.TipoUserPageModule)
   },
-
   
 ];
-
 
 @NgModule({
   imports: [

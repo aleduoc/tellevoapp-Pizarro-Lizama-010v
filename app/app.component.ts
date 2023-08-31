@@ -20,6 +20,17 @@ export class AppComponent {
       redirecTo: '/home',
       icon: 'home-outline'
     },
+    {
+      name: 'Login',
+      redirecTo: '/login',
+      icon: 'home-outline'
+    },
+    {
+      name: 'TipoUser',
+      redirecTo: '/tipo-user',
+      icon: 'home-outline'
+    },
+
   
   ]
 
