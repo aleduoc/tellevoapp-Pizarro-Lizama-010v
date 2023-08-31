@@ -22,7 +22,11 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+  },  {
+    path: 'register-cond',
+    loadChildren: () => import('./pages/register-cond/register-cond.module').then( m => m.RegisterCondPageModule)
   },
+
   
 ];
 

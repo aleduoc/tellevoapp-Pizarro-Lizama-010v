@@ -30,6 +30,11 @@ export class AppComponent {
       redirecTo: '/tipo-user',
       icon: 'home-outline'
     },
+    {
+      name: 'RegisterCond',
+      redirecTo: '/register-cond',
+      icon: 'home-outline'
+    },
 
   
   ]
