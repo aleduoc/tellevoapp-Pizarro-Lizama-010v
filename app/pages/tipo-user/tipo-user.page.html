@@ -7,22 +7,21 @@
       </ion-button>
     </ion-buttons>
 
-    <ion-title>TipoUser</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar> 
-      <ion-title size="large">TipoUser</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <ion-button [routerLink]="['/register-pasaj']" expand="block" fill="solid" color="primary" shape="round">
+  <div class="header">
+    <p class="title">Tipo de usuario</p>
+    <p class="subTitle">Selecciona tu perfil de usuario</p>
+  </div>
+
+  <ion-button [routerLink]="['/register-pasaj']" size="small" expand="block" fill="solid" color="primary" shape="round">
     Pasajero
   </ion-button>
 
-  <ion-button [routerLink]="['/register-cond']" expand="block" fill="solid" color="warning" shape="round">
+  <ion-button [routerLink]="['/register-cond']" size="small" expand="block" fill="solid" color="warning" shape="round">
     Conductor
   </ion-button>
 
