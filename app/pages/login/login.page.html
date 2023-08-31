@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="MostrarMenu()">
+        <ion-icon slot="icon-only" name="menu-outline" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    
+    <ion-card-header>
+      <ion-card-title>Iniciar Sesion</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      
+      <form #formulario="ngForm" (keyup.enter)="Confirmar()">
+        <ion-list>
+
+          <ion-item>
+            <ion-label position="floating">Email:</ion-label>
+            <ion-input type="email" placeholder="@duocuc.cl" name="email" [(ngModel)]="usuario.email"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Contraseña:</ion-label>
+            <ion-input type="password" placeholder="Contraseña" name="password" [(ngModel)]="usuario.password"></ion-input>
+          </ion-item>
+
+
+        </ion-list>
+
+        <ion-button (click)="Confirmar()" expand="block" fill="solid" color="primary" shape="round">
+          Confirmar
+        </ion-button>
+      </form>
+
+    </ion-card-content>
+
+  </ion-card>
+
+
+
+</ion-content>
