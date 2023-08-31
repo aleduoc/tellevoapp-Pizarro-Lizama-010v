@@ -15,6 +15,11 @@ export class AppComponent {
       redirecTo: '/inicio',
       icon: 'invert-mode-outline'
     },
+    {
+      name: 'Home',
+      redirecTo: '/home',
+      icon: 'home-outline'
+    },
   
   ]
 
