@@ -31,9 +31,15 @@ export class AppComponent {
       icon: 'home-outline'
     },
     {
+<<<<<<< HEAD
       name: 'Informacion',
       redirecTo: '/informacion',
       icon: 'information-circle-outline'
+=======
+      name: 'RegisterCond',
+      redirecTo: '/register-cond',
+      icon: 'home-outline'
+>>>>>>> ad4aef60fee0225a18b032efedb76953872109ac
     },
 
   
