@@ -45,6 +45,21 @@ export class AppComponent {
       redirecTo: '/register-pasaj',
       icon: 'information-circle-outline'
     },
+    {
+      name: 'Viajar',
+      redirecTo: '/viajar',
+      icon: 'car-sport-outline'
+    },
+    {
+      name: 'Perfil',
+      redirecTo: '/perfil',
+      icon: 'person-circle'
+    },
+    {
+      name: 'Conductor',
+      redirecTo: '/viajarconductor',
+      icon: 'person-circle'
+    },
 
 
   ]

@@ -38,6 +38,26 @@ const routes: Routes = [
     path: 'newpass',
     loadChildren: () => import('./pages/newpass/newpass.module').then( m => m.NewpassPageModule)
   },
+  {
+    path: 'viajar',
+    loadChildren: () => import('./pages/viajar/viajar.module').then( m => m.ViajarPageModule)
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'viajarconductor',
+    loadChildren: () => import('./pages/viajarconductor/viajarconductor.module').then( m => m.ViajarconductorPageModule)
+  },
+  {
+    path: 'tipouseris',
+    loadChildren: () => import('./pages/tipouseris/tipouseris.module').then( m => m.TipouserisPageModule)
+  },
+  {
+    path: 'login2',
+    loadChildren: () => import('./pages/login2/login2.module').then( m => m.Login2PageModule)
+  },
 
 ];
 

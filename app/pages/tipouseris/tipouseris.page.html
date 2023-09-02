@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="MostrarMenu()">
+        <ion-icon slot="icon-only" name="menu-outline" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="header">
+    <p class="title">Tipo de usuario</p>
+    <p class="subTitle">con el cual iniciaras sesion</p>
+  </div>
+
+  <ion-button [routerLink]="['/login']" size="small" expand="block" fill="solid" color="primary" shape="round">
+    Pasajero
+  </ion-button>
+
+  <ion-button [routerLink]="['/login2']" size="small" expand="block" fill="solid" color="warning" shape="round">
+    Conductor
+  </ion-button>
+
+</ion-content>

@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>TeLlevoApp</ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="MostrarMenu()">
+        <ion-icon slot="icon-only" name="menu-outline" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button [routerLink]="['/perfil']">
+        <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Te Llevo App</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <img src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2023/02/google-maps-2961754.jpg?tf=3840x" alt="maps">
+  </ion-card>
+
+  <div class="ion-padding">
+
+
+
+
+      <ion-item>
+        <ion-input type="text" placeholder="¿Hacia donde te dirijes?" name="meta" class="input" ></ion-input>
+        <ion-icon name="navigate-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" placeholder="¿Donde estás?" name="ubicacion" class="input" ></ion-input>
+        <ion-icon name="locate-outline"></ion-icon>
+      </ion-item> 
+
+      <ion-card-content>
+        <ion-button  size="small" (click)="Viajar()" expand="block" fill="solid" color="primary" shape="round">
+          Confirmar
+        </ion-button>
+      </ion-card-content>
+      <ion-card-content style="text-align: center;">
+        <ion-button [routerLink]="['/inicio']">Cerrar Sesión
+          <ion-icon slot="icon-only" name="exit-outline" color="dark" size="small" ></ion-icon>
+        </ion-button>
+      </ion-card-content>
+    
+    <div *ngIf="mostrarCarga" class="mensaje-carga">
+      Estamos buscando un vehículo disponible, porfavor espere...
+    </div>
+  </div>
+</ion-content>
