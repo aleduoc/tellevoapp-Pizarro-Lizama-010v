@@ -7,46 +7,36 @@
       </ion-button>
     </ion-buttons>
 
-<ion-buttons slot="primary">
-    <ion-button [routerLink]="['/perfil']">
-      <ion-icon slot="icon-only" name="person-circle"></ion-icon>
-    </ion-button>
-  </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button [routerLink]="['/perfil']">
+        <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
       
- 
-
-    <ion-title>Te Llevo App</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Te llevo App</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-card>
+
+  <div class="header">
+    <p class="title">TeLlevoAPP</p>
+    <p class="subTitle">Tu aplicación de Confianza</p>
+  </div>
+
+  <div class="container">
     <img src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2023/02/google-maps-2961754.jpg?tf=3840x" alt="maps">
-  </ion-card>
-  <ion-item-group>
-    <ion-card-content>
-      <ion-button [routerLink]="['/viajar']">Viajar
-        <ion-icon slot="icon-only" name="car-sport-outline" color="dark" size="small"></ion-icon>
-      </ion-button>
-    </ion-card-content>
+  </div>
 
-    <ion-card-content>
-      <ion-button [routerLink]="['/informacion']">Información
-        <ion-icon slot="icon-only" name="information-circle-outline" color="dark" size="small"></ion-icon>
-      </ion-button>
-    </ion-card-content>
-  
-    <ion-card-content>
-      <ion-button [routerLink]="['/inicio']">Cerrar Sesión
-        <ion-icon slot="icon-only" name="exit-outline" color="dark" size="small" ></ion-icon>
-      </ion-button>
-    </ion-card-content>
+  <ion-button size="small" [routerLink]="['/viajar']">Viajar
+    <ion-icon slot="icon-only" name="car-sport-outline" color="dark" size="small"></ion-icon>
+  </ion-button>
 
-  </ion-item-group>
+  <ion-button size="small" [routerLink]="['/informacion']">Información
+    <ion-icon slot="icon-only" name="information-circle-outline" color="dark" size="small"></ion-icon>
+  </ion-button>
+
+  <ion-button size="small" [routerLink]="['/inicio']">Cerrar Sesión
+    <ion-icon slot="icon-only" name="exit-outline" color="dark" size="small" ></ion-icon>
+  </ion-button>
+
 </ion-content>

@@ -1,0 +1,22 @@
+.header {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    .subTitle {
+        color: gray;
+        font-size: 0.9rem;
+        margin-left: 15%;
+        margin-right: 15%;
+        justify-content: center;
+    }
+    title {
+        font-size: 2rem;
+    }
+}
+
+ion-item {
+    --backround: #f1f1f1;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}

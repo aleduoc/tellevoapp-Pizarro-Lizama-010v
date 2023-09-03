@@ -1,0 +1,46 @@
+.input {
+    font-size: 300;
+}
+
+ion-item {
+    --backround: #f1f1f1;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+}
+
+
+.header {
+    margin-top: 10px;
+    margin-bottom: 50px;
+    text-align: center;
+    .subTitle {
+        color: gray;
+        font-size: 0.9rem;
+        margin-left: 15%;
+        margin-right: 15%;
+        justify-content: center;
+    }
+    title {
+        font-size: 2rem;
+    }
+
+}
+
+
+.password{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5%;
+    a{
+        font-weight: 400;
+        font-size: 0.8rem;
+    }
+}
+
+ion-button {
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 15%;
+
+}

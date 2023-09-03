@@ -1,47 +1,43 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Mi perfil</ion-title>
+
     <ion-buttons slot="start">
       <ion-button (click)="MostrarMenu()">
         <ion-icon slot="icon-only" name="menu-outline" color="primary"></ion-icon>
       </ion-button>
     </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Mi perfil</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
+  <div class="header">
+    <p class="title">Tu información</p>
+  </div>
+ 
   <ion-card-content>
     <img src="https://e7.pngegg.com/pngimages/981/645/png-clipart-default-profile-united-states-computer-icons-desktop-free-high-quality-person-icon-miscellaneous-silhouette.png"alt="Foto de perfil">
   </ion-card-content>
 
+  <ion-item>
+    <ion-label></ion-label>
+    <ion-input type="email" placeholder="nombre completo" name="nombre"></ion-input>
+    <ion-icon name="person-outline"></ion-icon>
+  </ion-item>
 
-    <ion-card-content>
-      <ion-card-header>
-        Detalles del Perfil
-      </ion-card-header>
-      <ion-item>
-        <ion-label>Nombre:</ion-label>
-        <ion-text>-------</ion-text>
-      </ion-item>
-      <ion-item>
-        <ion-label>Correo:</ion-label>
-        <ion-text>----------</ion-text>
-      </ion-item>
-      <ion-item>
-        <ion-label>Sede:</ion-label>
-        <ion-text>--------</ion-text>
-      </ion-item>
-      <ion-item>
-        <ion-label>Rut:</ion-label>
-        <ion-text>-----------</ion-text>
-      </ion-item>
-    </ion-card-content>
+  <ion-item>
+    <ion-input type="email" placeholder="correo institucional" name="email"></ion-input>
+    <ion-icon name="mail-outline"></ion-icon>
+  </ion-item>
 
+  <ion-item>
+    <ion-input type="email" placeholder="sede" name="sede"></ion-input>
+    <ion-icon name="globe-outline"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-input type="email" placeholder="rut" name="rut"></ion-input>
+    <ion-icon name="person-circle-outline"></ion-icon>
+  </ion-item>
 
 </ion-content>

@@ -1,0 +1,27 @@
+.header {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    .subTitle {
+        color: gray;
+        font-size: 0.9rem;
+        margin-left: 15%;
+        margin-right: 15%;
+        justify-content: center;
+    }
+    title {
+        font-size: 2rem;
+    }
+}
+
+.container {
+    text-align: center;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.ion-text-justify {
+    margin: 7%;
+    font-size: 0.9rem;
+
+}

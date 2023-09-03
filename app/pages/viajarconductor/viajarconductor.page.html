@@ -1,34 +1,34 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>TeLlevoApp</ion-title>
+
     <ion-buttons slot="start">
       <ion-button (click)="MostrarMenu()">
         <ion-icon slot="icon-only" name="menu-outline" color="primary"></ion-icon>
       </ion-button>
     </ion-buttons>
+
     <ion-buttons slot="primary">
       <ion-button [routerLink]="['/perfil']">
         <ion-icon slot="icon-only" name="person-circle"></ion-icon>
       </ion-button>
     </ion-buttons>
+
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Te Llevo App</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  
+  <div class="header">
+    <p class="title">TeLlevoAPP</p>
+    <p class="subTitle">Transporte de Confianza</p>
+  </div>
 
   <ion-card>
     <img src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2023/02/google-maps-2961754.jpg?tf=3840x" alt="maps">
   </ion-card>
 
   <div class="ion-padding">
-
-
-
 
       <ion-card>
         <ion-segment value="default" style="width: auto">
@@ -53,7 +53,7 @@
       </ion-card-content>
 
       <ion-card-content style="text-align: center;">
-        <ion-button [routerLink]="['/inicio']">Cerrar Sesión
+        <ion-button  size="small" [routerLink]="['/inicio']">Cerrar Sesión
           <ion-icon slot="icon-only" name="exit-outline" color="dark" size="small" ></ion-icon>
         </ion-button>
       </ion-card-content>

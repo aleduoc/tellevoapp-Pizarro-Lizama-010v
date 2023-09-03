@@ -16,50 +16,11 @@ export class AppComponent {
       icon: 'invert-mode-outline'
     },
     {
-      name: 'Home',
-      redirecTo: '/home',
-      icon: 'home-outline'
-    },
-    {
-      name: 'Login',
-      redirecTo: '/login',
-      icon: 'home-outline'
-    },
-    {
-      name: 'TipoUser',
-      redirecTo: '/tipo-user',
-      icon: 'home-outline'
-    },
-    {
-      name: 'RegisterCond',
-      redirecTo: '/register-cond',
-      icon: 'information-circle-outline'
-    },
-    {
-      name: 'Informacion',
+      name: 'Información',
       redirecTo: '/informacion',
       icon: 'information-circle-outline'
     },
-    {
-      name: 'RegisterPasaj',
-      redirecTo: '/register-pasaj',
-      icon: 'information-circle-outline'
-    },
-    {
-      name: 'Viajar',
-      redirecTo: '/viajar',
-      icon: 'car-sport-outline'
-    },
-    {
-      name: 'Perfil',
-      redirecTo: '/perfil',
-      icon: 'person-circle'
-    },
-    {
-      name: 'Conductor',
-      redirecTo: '/viajarconductor',
-      icon: 'person-circle'
-    },
+    
 
 
   ]

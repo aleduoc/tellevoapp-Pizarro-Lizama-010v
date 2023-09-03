@@ -1,0 +1,24 @@
+.input {
+    font-size: 300;
+}
+
+ion-item {
+    --backround: #f1f1f1;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.header {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    .subTitle {
+        color: gray;
+        font-size: 0.9rem;
+    }
+    title {
+        font-size: 2rem;
+    }
+
+}

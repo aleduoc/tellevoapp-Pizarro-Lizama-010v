@@ -1,0 +1,28 @@
+.header {
+    margin-top: 10px;
+    text-align: center;
+    .subTitle {
+        color: gray;
+        font-size: 0.9rem;
+    }
+    title {
+        font-size: 2rem;
+    }
+
+}
+
+.container {
+    text-align: center;
+    margin: 5%;
+}
+
+ion-button {
+    margin-bottom: 3%;
+    margin-left: 20%;
+    margin-right: 20%;
+
+}
+
+.btn-custom {
+    transition: background-color 0.3s ease;
+  }
