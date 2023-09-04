@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,8 @@ import { MenuController } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
 
-  constructor(private menuController: MenuController) { }
+  constructor(private menuController: MenuController,
+              private alertController: AlertController) { }
 
   ngOnInit() {
   }
@@ -16,6 +18,16 @@ export class HomePage implements OnInit {
   MostrarMenu(){
     this.menuController.open('first')
 
+  }
+
+  async CerrarSesion() {
+    const alert = await this.alertController.create({
+      header: 'Cierre de sesión',
+      message: 'Has cerrado sesión con exito;)',
+      buttons: ['volver a inicio'],
+    });
+
+    await alert.present();
   }
 
 

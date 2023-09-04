@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="dark">
 
     <ion-buttons slot="start">
       <ion-button (click)="MostrarMenu()">
@@ -30,7 +30,7 @@
           <ion-icon name="mail-outline"></ion-icon>
         </ion-item>
 
-        <ion-button [routerLink]="['/home']" size="small" (click)="Confirmar()" expand="block" fill="solid" color="primary" shape="round">
+        <ion-button [routerLink]="['/inicio']" size="small" (click)="MensajeInicio()" expand="block" fill="solid" color="primary" shape="round">
           Enviar
         </ion-button>
       </form>

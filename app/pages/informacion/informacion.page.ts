@@ -18,4 +18,5 @@ export class InformacionPage implements OnInit {
 
   }
 
+
 }

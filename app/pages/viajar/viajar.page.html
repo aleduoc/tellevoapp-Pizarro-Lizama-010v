@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     
     <ion-buttons slot="start">
       <ion-button (click)="MostrarMenu()">
@@ -47,7 +47,7 @@
 
     <ion-card-content style="text-align: center;">
       
-      <ion-button size="small" [routerLink]="['/inicio']">Cerrar Sesión
+      <ion-button size="small" [routerLink]="['/inicio']" (click)="CerrarSesion()">Cerrar Sesión
         <ion-icon slot="icon-only" name="exit-outline" color="dark" size="small" ></ion-icon>
       </ion-button>
     </ion-card-content>

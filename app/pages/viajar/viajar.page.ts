@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-viajar',
@@ -10,7 +11,8 @@ export class ViajarPage implements OnInit {
 
   mostrarCarga: boolean = false;
 
-  constructor(private menuController: MenuController){ }
+  constructor(private alertController: AlertController,
+              private menuController: MenuController){ }
 
   ngOnInit() {
   }
@@ -25,4 +27,15 @@ export class ViajarPage implements OnInit {
       this.mostrarCarga = false;
     }, 4000);
   }
+
+  async CerrarSesion() {
+    const alert = await this.alertController.create({
+      header: 'Cierre de sesión',
+      message: 'Has cerrado sesión con exito;)',
+      buttons: ['volver a inicio'],
+    });
+
+    await alert.present();
+  }
+
 }
