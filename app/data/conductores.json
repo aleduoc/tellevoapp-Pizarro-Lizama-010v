@@ -1,0 +1,36 @@
+{
+  "conductores": [
+    {
+      "id": 1,
+      "email": "nico.lizama@duocuc.cl",
+      "sede": "Maipu",
+      "rut": "18663950-2",
+      "patente": "GDHK31",
+      "password": "Yolamaba51"
+    },
+    {
+      "id": 2,
+      "email": "alex.pizarroa@duocuc.cl",
+      "sede": "Maipu",
+      "rut": "20663950-2",
+      "patente": "GDHK88",
+      "password": "Yolamaba01"
+    },
+    {
+      "id": 3,
+      "email": "diego.rojas@duocuc.cl",
+      "sede": "",
+      "rut": "21564207-1",
+      "patente": "JKLM99",
+      "password": "taycalentito"
+    },
+    {
+      "email": "maldaoso@duocuc.cl",
+      "sede": "",
+      "rut": "20186950-2",
+      "patente": "gkyl88",
+      "password": "yolamaba51",
+      "id": 4
+    }
+  ]
+}

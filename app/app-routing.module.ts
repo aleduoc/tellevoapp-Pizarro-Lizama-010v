@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AutorizadoGuard } from './guards/autorizado.guard';
 
 const routes: Routes = [
   {
@@ -30,7 +31,8 @@ const routes: Routes = [
   {
     path: 'informacion',
     loadChildren: () => import('./pages/informacion/informacion.module').then( m => m.InformacionPageModule)
-  },  {
+  },
+  {
     path: 'register-pasaj',
     loadChildren: () => import('./pages/register-pasaj/register-pasaj.module').then( m => m.RegisterPasajPageModule)
   },
@@ -40,15 +42,18 @@ const routes: Routes = [
   },
   {
     path: 'viajar',
-    loadChildren: () => import('./pages/viajar/viajar.module').then( m => m.ViajarPageModule)
+    loadChildren: () => import('./pages/viajar/viajar.module').then( m => m.ViajarPageModule),
+    canActivate:[AutorizadoGuard]
   },
   {
     path: 'perfil',
-    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
+    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule),
+    canActivate:[AutorizadoGuard]
   },
   {
     path: 'viajarconductor',
-    loadChildren: () => import('./pages/viajarconductor/viajarconductor.module').then( m => m.ViajarconductorPageModule)
+    loadChildren: () => import('./pages/viajarconductor/viajarconductor.module').then( m => m.ViajarconductorPageModule),
+    canActivate:[AutorizadoGuard]
   },
   {
     path: 'tipouseris',

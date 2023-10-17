@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
+import { ApiCrudService } from 'src/app/servicios/api-crud.service';
+import { IConductor } from '../interfaces/interfaces';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-cond',
@@ -8,9 +12,12 @@ import { MenuController } from '@ionic/angular';
 })
 export class RegisterCondPage implements OnInit {
 
-  constructor(private menuController: MenuController) { }
+  constructor(private menuController: MenuController,
+              private alertController: AlertController,
+              private router: Router,
+              private apicrud: ApiCrudService) { }
 
-  usuario = {
+  NewConductor: IConductor = {
     email: '',
     sede: '',
     rut: '',
@@ -28,12 +35,10 @@ export class RegisterCondPage implements OnInit {
 
   Confirmar() {
     console.log('Confirmado')
-    this.usuario.email='';
-    this.usuario.sede='';
-    this.usuario.rut='';
-    this.usuario.patente='';
-    this.usuario.password='';
+  }
 
+  crearChofer() {
+    this.apicrud.crearConductor(this.NewConductor).subscribe();
   }
 
 }
