@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { IConductores } from '../pages/interfaces/interfaces';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -10,7 +11,8 @@ import { IConductores } from '../pages/interfaces/interfaces';
 })
 export class AuthService {
 
-  constructor(private httpclient: HttpClient) { }
+  constructor(private httpclient: HttpClient,
+              private router: Router) { }
 
   //obtener todos los usuarios
   getAllConductores():Observable<IConductores>{
@@ -24,7 +26,10 @@ export class AuthService {
   isLoggedIn(){
     return sessionStorage.getItem('email')!=null;
   }
-  
 
-  //obtenemos el usuario por su email
+  logoutUser(){
+    sessionStorage.clear();
+    this.router.navigate(['/events'])
+  }
+
 }

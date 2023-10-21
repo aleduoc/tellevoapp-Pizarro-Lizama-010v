@@ -18,15 +18,23 @@
 
     <div class="ion-padding">
 
-      <form #formulario="ngForm" (keyup.enter)="Confirmar()">
+      <form [formGroup]="registerForm" (keyup.enter)="Confirmar()">
 
           <ion-item>
-            <ion-input type="email" placeholder="correo institucional" name="email" [(ngModel)]="NewConductor.email"></ion-input>
+            <ion-input type="email" placeholder="correo institucional" name="email" formControlName="email"></ion-input>
             <ion-icon name="mail-outline"></ion-icon>
           </ion-item>
+          <div class="container" *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)">
+            <div class="mensaje" *ngIf="registerForm.get('email')?.hasError('required')">
+              <p>¡email Electrónico obligatorio!</p>
+            </div>
+            <div class="mensaje" *ngIf="registerForm.get('email')?.hasError('email')">
+              <p>¡Debe ser una dirección de email válida!</p>
+            </div>
+          </div>
 
           <ion-item>
-            <ion-select aria-label="Fruit" interface="action-sheet" placeholder="sede duoc uc">
+            <ion-select aria-label="Fruit" interface="action-sheet" placeholder="sede duoc uc" formControlName="sede">
               <ion-select-option value="alameda">Alameda</ion-select-option>
               <ion-select-option value="antonio-varas">Antonio Varas</ion-select-option>
               <ion-select-option value="maipu">Maipú</ion-select-option>
@@ -44,26 +52,39 @@
           </ion-item>
 
           <ion-item>
-            <ion-input type="text" placeholder="rut" name="rut" [(ngModel)]="NewConductor.rut"></ion-input>
+            <ion-input type="text" placeholder="rut" name="rut" formControlName="rut"></ion-input>
             <ion-icon name="person-circle-outline"></ion-icon>
           </ion-item>
+          <div style="color: red;" *ngIf="registerForm.get('rut')?.invalid && (registerForm.get('rut')?.dirty || registerForm.get('rut')?.touched)">
+            <div *ngIf="registerForm.get('rut')?.hasError('validatorpatterns')">
+              <p>Debe ser un rut válido</p>
+            </div>
+          </div>
 
           <ion-item>
-            <ion-input type="text" placeholder="patente" name="patente" [(ngModel)]="NewConductor.patente"></ion-input>
+            <ion-input type="text" placeholder="patente" name="patente" formControlName="patente"></ion-input>
             <ion-icon name="car-sport-outline"></ion-icon>
           </ion-item>
 
           <ion-item>
-            <ion-input type="password" placeholder="contraseña" name="password" [(ngModel)]="NewConductor.password"></ion-input>
+            <ion-input type="password" placeholder="contraseña" name="password" formControlName="password"></ion-input>
             <ion-icon name="lock-closed-outline"></ion-icon>
           </ion-item>
+          <div class="container" *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)">
+            <div class="mensaje" *ngIf="registerForm.get('password')?.hasError('required')">
+              <p>¡Contraseña obligatoria!</p>
+            </div>
+            <div class="mensaje" *ngIf="registerForm.get('password')?.hasError('minlength')">
+              <p>¡La contraseña debe tener mínimo 8 carácteres!</p>
+            </div>
+          </div>
 
           <div class="cuenta">
             <a [routerLink]="['/login']">¿Ya tienes una cuenta?</a>
           </div>
 
 
-        <ion-button [routerLink]="['/viajarconductor']" (click)="crearChofer()" (click)="Confirmar()" size="small" expand="block" fill="solid" color="primary" shape="round">
+        <ion-button [routerLink]="['/viajarconductor']" (click)="registroChofer()" [disabled]="!registerForm.valid" (click)="Confirmar()" size="small" expand="block" fill="solid" color="primary" shape="round">
           Confirmar
         </ion-button>
 

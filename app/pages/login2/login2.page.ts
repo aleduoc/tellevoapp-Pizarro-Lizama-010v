@@ -15,7 +15,7 @@ import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms'
 export class Login2Page implements OnInit {
 
   loginForm: FormGroup;
-
+  showAlert:boolean = false;
   userdata: any;
 
   IConductores = {
@@ -49,6 +49,7 @@ export class Login2Page implements OnInit {
   }
 
   Confirmar() {
+    this.showAlert = false;
     if (this.loginForm.valid) {
       this.authservice.getUserByEmail(this.loginForm.value.email).subscribe(resp=>{
         this.userdata=resp;
@@ -64,11 +65,16 @@ export class Login2Page implements OnInit {
           }
           if (this.IConductores.password === this.loginForm.value.password){
             sessionStorage.setItem('email', this.IConductores.email);
+            sessionStorage.setItem('sede', this.IConductores.sede);
+            sessionStorage.setItem('rut', this.IConductores.rut);
+            sessionStorage.setItem('patente', this.IConductores.patente);
             sessionStorage.setItem('ingresado', 'true');
             this.showToast('Sesion iniciada');
-            this.router.navigateByUrl("/viajarconductor")
+            this.router.navigateByUrl("/viajarconductor").then(() => {
+              window.location.reload();});
           }
-
+        }if (this.IConductores.password != this.loginForm.value.password){
+          this.showAlert = true;
         }
       })
     }

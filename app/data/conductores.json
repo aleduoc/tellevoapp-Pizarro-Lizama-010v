@@ -19,7 +19,7 @@
     {
       "id": 3,
       "email": "diego.rojas@duocuc.cl",
-      "sede": "",
+      "sede": "puerto varas",
       "rut": "21564207-1",
       "patente": "JKLM99",
       "password": "taycalentito"
@@ -31,6 +31,22 @@
       "patente": "gkyl88",
       "password": "yolamaba51",
       "id": 4
+    },
+    {
+      "email": "diegitogay@duoc.cl",
+      "sede": "maipu",
+      "rut": "216754321",
+      "patente": "bb76589",
+      "password": "diego12345",
+      "id": 5
+    },
+    {
+      "email": "diosiod@outlook.com",
+      "sede": "melipilla",
+      "rut": "21.434.434-2",
+      "patente": "32332",
+      "password": "duocduoc",
+      "id": 6
     }
   ]
 }

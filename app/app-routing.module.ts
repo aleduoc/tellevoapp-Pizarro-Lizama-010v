@@ -30,7 +30,8 @@ const routes: Routes = [
   },
   {
     path: 'informacion',
-    loadChildren: () => import('./pages/informacion/informacion.module').then( m => m.InformacionPageModule)
+    loadChildren: () => import('./pages/informacion/informacion.module').then( m => m.InformacionPageModule),
+    canActivate:[AutorizadoGuard]
   },
   {
     path: 'register-pasaj',
@@ -42,18 +43,15 @@ const routes: Routes = [
   },
   {
     path: 'viajar',
-    loadChildren: () => import('./pages/viajar/viajar.module').then( m => m.ViajarPageModule),
-    canActivate:[AutorizadoGuard]
+    loadChildren: () => import('./pages/viajar/viajar.module').then( m => m.ViajarPageModule)
   },
   {
     path: 'perfil',
-    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule),
-    canActivate:[AutorizadoGuard]
+    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
   },
   {
     path: 'viajarconductor',
-    loadChildren: () => import('./pages/viajarconductor/viajarconductor.module').then( m => m.ViajarconductorPageModule),
-    canActivate:[AutorizadoGuard]
+    loadChildren: () => import('./pages/viajarconductor/viajarconductor.module').then( m => m.ViajarconductorPageModule)
   },
   {
     path: 'tipouseris',

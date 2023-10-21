@@ -21,7 +21,7 @@
   
   <div class="header">
     <p class="title">TeLlevoAPP</p>
-    <p class="subTitle">Transporte de Confianza</p>
+    <p class="subTitle">Bienvenido {{ usuario.email }}</p>
   </div>
 
   <ion-card>
@@ -53,7 +53,7 @@
       </ion-card-content>
 
       <ion-card-content style="text-align: center;">
-        <ion-button  size="small" [routerLink]="['/inicio']" (click)="CerrarSesion()" >Cerrar Sesión
+        <ion-button  size="small" [routerLink]="['/inicio']"(click)="logout()">Cerrar Sesión
           <ion-icon slot="icon-only" name="exit-outline" color="dark" size="small" ></ion-icon>
         </ion-button>
       </ion-card-content>

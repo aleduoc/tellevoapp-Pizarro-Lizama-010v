@@ -8,9 +8,34 @@ import { MenuController } from '@ionic/angular';
 })
 export class PerfilPage implements OnInit {
 
-  constructor(private menuController: MenuController) { }
+  usuario={
+    email:"",
+    sede:"",
+    rut:"",
+    patente:""
+  }
+
+  constructor(private menuController: MenuController) { this.obtainStorage(); }
 
   ngOnInit() {
+  }
+
+  obtainStorage(){
+    let email = sessionStorage.getItem("email");
+    let sede = sessionStorage.getItem("sede");
+    let rut = sessionStorage.getItem("rut");
+    let patente = sessionStorage.getItem("patente");
+     
+    if (email) {
+      this.usuario.email = email;
+    }if (sede) {
+      this.usuario.sede = sede;
+    }
+    if (rut) {
+      this.usuario.rut = rut;
+    }if (patente) {
+      this.usuario.patente = patente;
+    }
   }
 
   MostrarMenu(){
