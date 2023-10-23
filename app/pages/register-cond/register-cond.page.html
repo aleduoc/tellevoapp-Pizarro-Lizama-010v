@@ -26,7 +26,7 @@
           </ion-item>
           <div class="container" *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)">
             <div class="mensaje" *ngIf="registerForm.get('email')?.hasError('required')">
-              <p>¡email Electrónico obligatorio!</p>
+              <p>¡El email es obligatorio!</p>
             </div>
             <div class="mensaje" *ngIf="registerForm.get('email')?.hasError('email')">
               <p>¡Debe ser una dirección de email válida!</p>
@@ -57,7 +57,7 @@
           </ion-item>
           <div style="color: red;" *ngIf="registerForm.get('rut')?.invalid && (registerForm.get('rut')?.dirty || registerForm.get('rut')?.touched)">
             <div *ngIf="registerForm.get('rut')?.hasError('validatorpatterns')">
-              <p>Debe ser un rut válido</p>
+              <p>El rut debe ser válido</p>
             </div>
           </div>
 
