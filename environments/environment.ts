@@ -6,6 +6,10 @@ export const environment = {
   production: false,
   apiUrl: 'http://localhost:3300'
 };
+export const environments = {
+  production: false,
+  googleMapsApiKey: 'AIzaSyAMz1rek9m9iQt1fZ59GOSTHyN3g0gw0-0'
+};
 
 /*
  * For easier debugging in development mode, you can import the following file
