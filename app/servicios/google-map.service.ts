@@ -2,7 +2,6 @@
 import { Injectable } from '@angular/core';
 import { environments } from 'src/environments/environment';
 
-// Declaración ambiental de 'google'
 declare var google: any;
 
 @Injectable({
@@ -10,7 +9,7 @@ declare var google: any;
 })
 export class GoogleMapsService {
   private apiKey: string;
-  private marker: any; 
+  private marker: any;
 
   constructor() {
     // Obtener la API Key desde el environment
@@ -35,7 +34,6 @@ export class GoogleMapsService {
   }
 
   initMap(lat: number, lng: number, elementId: string): void {
-    // Inicializar mapa
     const map = new google.maps.Map(document.getElementById(elementId), {
       center: { lat, lng },
       zoom: 15
@@ -53,7 +51,6 @@ export class GoogleMapsService {
     });
   }
 
-  // Nuevo método para inicializar autocompletado y trazar línea
   initAutocompleteAndDirectionMap(elementId: string, origin: { lat: number, lng: number }): void {
     const map = new google.maps.Map(document.getElementById(elementId), {
       center: { lat: origin.lat, lng: origin.lng },
@@ -75,6 +72,7 @@ export class GoogleMapsService {
     const autocomplete = new google.maps.places.Autocomplete(autocompleteInput, {
       fields: ["address_components", "geometry", "name"],
       types: ["address"],
+      
     });
 
     autocomplete.addListener('place_changed', () => {
@@ -84,7 +82,6 @@ export class GoogleMapsService {
         return;
       }
 
-      // Renderizar dirección y trazar línea
       this.renderAddressAndDirection(map, marker.getPosition(), destination.geometry.location);
     });
   }

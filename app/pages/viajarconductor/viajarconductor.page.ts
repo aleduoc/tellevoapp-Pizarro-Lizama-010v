@@ -1,10 +1,13 @@
 // viajarconductor.page.ts
+/// <reference types="@types/googlemaps" />
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MenuController, ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { Router } from '@angular/router';
 import { GoogleMapsService } from 'src/app/servicios/google-map.service';
 
+declare var google: any;
 @Component({
   selector: 'app-viajarconductor',
   templateUrl: './viajarconductor.page.html',
@@ -22,12 +25,16 @@ export class ViajarconductorPage implements OnInit {
 
   lat = 0; // Latitud inicial
   lng = 0; // Longitud inicial
+  inputText = ''; // Agregamos esta variable para almacenar el texto del input
+  predictions: google.maps.places.QueryAutocompletePrediction[] = [];
 
-  constructor(private menuController: MenuController,
+  constructor(
+    private menuController: MenuController,
     public authservice: AuthService,
     private toastcontroller: ToastController,
     private googleMapsService: GoogleMapsService,
-    private router: Router) { this.obtainStorage(); }
+    private router: Router
+  ) { this.obtainStorage(); }
 
   ngOnInit(): void {
     this.googleMapsService.obtenerUbicacionActual()
@@ -80,6 +87,34 @@ export class ViajarconductorPage implements OnInit {
     }
   }
 
+  async searchPredictions() {
+    const autocompleteInput = this.ubicacionInput.el.querySelector('input');
+    const autocompleteService = new google.maps.places.AutocompleteService();
+    const sessionToken = new google.maps.places.AutocompleteSessionToken();
+  
+    const options = {
+      input: this.inputText,
+      sessionToken: sessionToken,
+      origin: new google.maps.LatLng(this.lat, this.lng),
+      componentRestrictions: { country: 'CL' } // Código de país de Chile
+    };
+  
+    autocompleteService.getPlacePredictions(options, (predictions: any, status: any) => {
+      if (status == google.maps.places.PlacesServiceStatus.OK && predictions) {
+        this.predictions = predictions;
+      } else {
+        this.predictions = [];
+      }
+    });
+  }
+  
+  
+
+  selectPrediction(prediction: any) {
+    this.inputText = prediction.description;
+    this.predictions = [];
+  }
+
   async showToast(msg: any) {
     const toast = await this.toastcontroller.create({
       message: msg,
@@ -88,9 +123,3 @@ export class ViajarconductorPage implements OnInit {
     toast.present();
   }
 }
-
-  
-  
-
-
-
