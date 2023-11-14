@@ -42,13 +42,14 @@
       </ion-card>
 
       <ion-item>
-        <ion-input type="text" placeholder="¿Donde estás?" name="ubicacion" class="input" ></ion-input>
+        <ion-input type="text" placeholder="¿Hacia donde te diriges?" id="ubicacion" #ubicacionInput name="ubicacion" class="input"></ion-input>
         <ion-icon name="locate-outline"></ion-icon>
-      </ion-item> 
+      </ion-item>
+      
 
       <ion-card-content>
-        <ion-button  size="small" (click)="Viajar()" expand="block" fill="solid" color="primary" shape="round">
-          Buscar viajes
+        <ion-button  size="small" (click)="trazarRuta()" expand="block" fill="solid" color="primary" shape="round">
+          Trazar la ruta
         </ion-button>
       </ion-card-content>
 
@@ -58,8 +59,5 @@
         </ion-button>
       </ion-card-content>
     
-    <div *ngIf="mostrarCarga" class="mensaje-carga">
-      Estamos buscando pasajeros disponibles, porfavor espere...
-    </div>
   </div>
 </ion-content>
