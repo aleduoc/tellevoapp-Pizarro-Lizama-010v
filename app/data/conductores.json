@@ -2,9 +2,9 @@
   "pasajeros": [
     {
       "id": 1,
-      "rut": "20.999.888-3",
+      "rut": "18.663.950-2",
       "email": "nico.lizama@duocuc.cl",
-      "sede": "alonso-valle",
+      "sede": "maipu",
       "password": "12345678",
       "rol": "Pasajero"
     }

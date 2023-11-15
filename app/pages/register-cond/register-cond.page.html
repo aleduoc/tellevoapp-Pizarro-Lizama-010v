@@ -12,7 +12,7 @@
 
 <ion-content [fullscreen]="true">
   <div class="header">
-    <p class="title">Registro de usuario</p>
+    <p class="title">Registro de Conductor</p>
     <p class="subTitle">Completa tu informacion</p>
   </div>
 
@@ -86,7 +86,7 @@
               <p>¡Contraseña obligatoria!</p>
             </div>
             <div class="mensaje" *ngIf="registerForm.get('password')?.hasError('minlength')">
-              <p>¡La contraseña debe tener mínimo 8 carácteres!</p>
+              <p>¡Contraseña mínima de 8 carácteres!</p>
             </div>
           </div>
 

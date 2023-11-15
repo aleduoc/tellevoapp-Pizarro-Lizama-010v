@@ -15,7 +15,7 @@
 
   <div class="header">
     <p class="title">Bienvenido</p>
-    <p class="subTitle">Ingresa a tu cuenta</p>
+    <p class="subTitle">Ingresa a tu cuenta de Pasajero</p>
   </div>
 
   
@@ -29,12 +29,12 @@
           <ion-input type="email" placeholder="correo institucional" name="email" class="input" formControlName="email"></ion-input>
           <ion-icon name="mail-outline"></ion-icon>
         </ion-item>
-        <div *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
-          <div style="color: red;" *ngIf="loginForm.get('email')?.hasError('required')">
-            El Email es obligatorio
+        <div class="container" *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+          <div class="mensaje" *ngIf="loginForm.get('email')?.hasError('required')">
+            <p>¡El Email es obligatorio!</p>
           </div>
-          <div style="color:red" *ngIf="loginForm.get('email')?.hasError">
-            Este campo debe ser un Email
+          <div class="mensaje" *ngIf="loginForm.get('email')?.hasError">
+            <p>¡Debe ser una dirección de email válida!</p>
           </div>
         </div>
         
@@ -43,17 +43,17 @@
           <ion-input type="password" placeholder="contraseña" name="password" class="input" formControlName="password"></ion-input>
           <ion-icon name="lock-closed-outline"></ion-icon>
         </ion-item>
-        <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
-          <div  *ngIf="loginForm.get('password')?.hasError('required')">
-            La contraseña es obligatorio
+        <div class="container" *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+          <div class="mensaje" *ngIf="loginForm.get('password')?.hasError('required')">
+            <p>¡Contraseña obligatoria!</p>
           </div>
-          <div style="color:red" *ngIf="loginForm.get('password')?.hasError('minlength')">
-            *Password mínimo 8 caracteres
+          <div class="mensaje" *ngIf="loginForm.get('password')?.hasError('minlength')">
+            <p>¡Contraseña mínima de 8 carácteres!</p>
           </div>
         </div>
         <div *ngIf="showAlert">
-          <div style="color: red;">
-            <p>Correo Electrónico o Contraseña no existen</p>
+          <div class="mensaje">
+            <p>¡Credenciales inexistente!</p>
           </div>
         </div>
 

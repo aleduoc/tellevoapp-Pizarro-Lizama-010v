@@ -12,7 +12,7 @@
 
 <ion-content [fullscreen]="true">
   <div class="header">
-    <p class="title">Registro de usuario</p>
+    <p class="title">Registro de Pasajero</p>
     <p class="subTitle">Completa tu informacion</p>
   </div>
 
@@ -66,11 +66,11 @@
         <ion-icon name="lock-closed-outline"></ion-icon>
       </ion-item>
       <div class="container" *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)">
-        <div class="mensaje" *nIf="registerForm.get('password')?.hasError('required')">
+        <div class="mensaje" *ngIf="registerForm.get('password')?.hasError('required')">
           <p>¡Contraseña obligatoria!</p>
         </div>
         <div class="mensaje" *ngIf="registerForm.get('password')?.hasError('minlength')">
-          <p>¡La contraseña debe tener mínimo 8 carácteres!</p>
+          <p>¡Contraseña mínima de 8 carácteres!</p>
         </div>
       </div>
 
