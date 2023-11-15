@@ -15,6 +15,7 @@ declare var google: any;
 })
 
 export class ViajarconductorPage implements OnInit {
+  
   usuario = {
     email: "",
   }

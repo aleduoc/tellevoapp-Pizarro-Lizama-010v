@@ -25,6 +25,7 @@ export class Login2Page implements OnInit {
     rut: "",
     patente: "",
     password: "",
+    rol:""
   }
 
   constructor(private menuController: MenuController,
@@ -62,12 +63,14 @@ export class Login2Page implements OnInit {
             rut: this.userdata[0].rut,
             patente: this.userdata[0].patente,
             password: this.userdata[0].password,
+            rol: this.userdata[0].rol
           }
           if (this.IConductores.password === this.loginForm.value.password){
             sessionStorage.setItem('email', this.IConductores.email);
             sessionStorage.setItem('sede', this.IConductores.sede);
             sessionStorage.setItem('rut', this.IConductores.rut);
             sessionStorage.setItem('patente', this.IConductores.patente);
+            sessionStorage.setItem('rol', this.IConductores.rol);
             sessionStorage.setItem('ingresado', 'true');
             this.showToast('Sesion iniciada');
             this.router.navigateByUrl("/viajarconductor").then(() => {

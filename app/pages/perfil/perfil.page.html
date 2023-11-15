@@ -34,8 +34,21 @@
 
   <ion-item > 
           <ion-label>
-            <h2>sede</h2>
-            <p> {{ usuario.sede }}</p>
+            <h2>Sede</h2>
+            <ion-select aria-label="Fruit" interface="action-sheet"  placeholder="{{ usuario.sede }}" [(ngModel)]="usuario.sede">
+              <ion-select-option value="alameda">Alameda</ion-select-option>
+              <ion-select-option value="antonio-varas">Antonio Varas</ion-select-option>
+              <ion-select-option value="maipu">Maipú</ion-select-option>
+              <ion-select-option value="melipilla">Melipilla</ion-select-option>
+              <ion-select-option value="alonso-valle">Padre Alonso de Ovalle</ion-select-option>
+              <ion-select-option value="plaza-oeste">Plaza Oeste</ion-select-option>
+              <ion-select-option value="plaza-vespucio">Plaza Vespucio</ion-select-option>
+              <ion-select-option value="plaza-norte">Plaza Norte</ion-select-option>
+              <ion-select-option value="puente-alto">Puente Alto</ion-select-option>
+              <ion-select-option value="san-bernardo">San Bernardo</ion-select-option>
+              <ion-select-option value="apoquindo">San Carlos de Apoquindo</ion-select-option>
+              <ion-select-option value="san-joaquin">San Joaquín</ion-select-option>
+            </ion-select>
           </ion-label>
           <ion-icon name="globe-outline"></ion-icon>
   </ion-item>
@@ -43,9 +56,19 @@
   <ion-item>
     <ion-label>
       <h2>Rut</h2>
-      <p> {{ usuario.rut }}</p>
+      <p> {{ usuario.rut }} </p>
     </ion-label>
     <ion-icon name="person-circle-outline"></ion-icon>
   </ion-item>
 
+  <ion-item *ngIf="usuario.rol == 'Conductor'">
+    <ion-label>
+      <h2>Patente</h2>
+      <p> {{usuario.patente}} </p>
+    </ion-label>
+    <ion-icon name="car-sport-outline"></ion-icon>
+  </ion-item>
+
+  <ion-button size="small" shape="round" *ngIf="usuario.rol == 'Pasajero'" (click)="updatePasajero()">Actualizar</ion-button>
+  <ion-button size="small" shape="round" *ngIf="usuario.rol == 'Conductor'" (click)="updateConductor()">Actualizar</ion-button>
 </ion-content>

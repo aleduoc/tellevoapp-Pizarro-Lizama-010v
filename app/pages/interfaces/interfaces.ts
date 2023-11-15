@@ -5,6 +5,7 @@ export interface IConductores {
     rut: string,
     patente: string,
     password: string,
+    rol: string,
 
 }
 
@@ -13,6 +14,26 @@ export interface IConductor {
     sede: string,
     rut: string,
     patente: string,
-    password: string
+    password: string,
+    rol: string,
 
+}
+
+export interface IPasajeros {
+    id: number,
+    email: string,
+    sede: string,
+    rut: string,
+    password: string,
+    rol: string,
+
+}
+
+export interface IPasajero {
+    email: string,
+    sede: string,
+    rut: string,
+    password: string,
+    rol: string,
+    
 }

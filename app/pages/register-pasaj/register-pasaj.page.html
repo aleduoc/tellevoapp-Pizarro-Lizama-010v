@@ -18,15 +18,23 @@
 
   <div class="ion-padding">
 
-    <form #formulario="ngForm" (keyup.enter)="Confirmar()">
+    <form [formGroup]="registerForm" (keyup.enter)="Confirmar()">
           
       <ion-item>
-        <ion-input type="email" placeholder="correo institucional" name="email" [(ngModel)]="usuario.email"></ion-input>
+        <ion-input type="email" placeholder="correo institucional" name="email" formControlName="email"></ion-input>
         <ion-icon name="mail-outline"></ion-icon>
       </ion-item>
+      <div class="container" *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)">
+        <div class="mensaje" *ngIf="registerForm.get('email')?.hasError('required')">
+          <p>¡El email es obligatorio!</p>
+        </div>
+        <div class="mensaje" *ngIf="registerForm.get('email')?.hasError('email')">
+          <p>¡Debe ser una dirección de email válida!</p>
+        </div>
+      </div>
 
       <ion-item>
-        <ion-select aria-label="Fruit" interface="action-sheet" placeholder="Selecione Sede">
+        <ion-select aria-label="Fruit" interface="action-sheet" placeholder="Sede Duoc Uc" formControlName="sede">
           <ion-select-option value="alameda">Alameda</ion-select-option>
           <ion-select-option value="antonio-varas">Antonio Varas</ion-select-option>
           <ion-select-option value="maipu">Maipú</ion-select-option>
@@ -44,20 +52,33 @@
       </ion-item>
 
       <ion-item>
-        <ion-input type="text" placeholder="rut" name="rut" [(ngModel)]="usuario.rut"></ion-input>
+        <ion-input type="text" placeholder="rut" name="rut" formControlName="rut"></ion-input>
         <ion-icon name="person-circle-outline"></ion-icon>
       </ion-item>
+      <div class="container" *ngIf="registerForm.get('rut')?.invalid && (registerForm.get('rut')?.dirty || registerForm.get('rut')?.touched )">
+        <div class="mensaje" *ngIf="registerForm.get('rut')?.hasError('required')">
+          <p>¡Rut obligatorio!</p>
+        </div>
+      </div>
 
       <ion-item>
-        <ion-input type="password" placeholder="contraseña" name="password" [(ngModel)]="usuario.password"></ion-input>
+        <ion-input type="password" placeholder="contraseña" name="password" formControlName="password"></ion-input>
         <ion-icon name="lock-closed-outline"></ion-icon>
       </ion-item>
+      <div class="container" *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)">
+        <div class="mensaje" *nIf="registerForm.get('password')?.hasError('required')">
+          <p>¡Contraseña obligatoria!</p>
+        </div>
+        <div class="mensaje" *ngIf="registerForm.get('password')?.hasError('minlength')">
+          <p>¡La contraseña debe tener mínimo 8 carácteres!</p>
+        </div>
+      </div>
 
       <div class="cuenta">
         <a [routerLink]="['/login']">¿Ya tienes una cuenta?</a>
       </div>
 
-    <ion-button [routerLink]="['/viajar']" (click)="Confirmar()" size="small" expand="block" fill="solid" color="primary" shape="round">
+    <ion-button [routerLink]="['/viajar']" (click)="registroPasajero()" [disabled]="!registerForm.valid" (click)="Confirmar()" size="small" expand="block" fill="solid" color="primary" shape="round">
       Confirmar
     </ion-button>
 

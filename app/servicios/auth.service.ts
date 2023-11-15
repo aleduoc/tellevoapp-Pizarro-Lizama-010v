@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { IConductores } from '../pages/interfaces/interfaces';
+import { IPasajeros } from '../pages/interfaces/interfaces';
 import { Router } from '@angular/router';
 
 
@@ -21,6 +22,14 @@ export class AuthService {
 
   getUserByEmail(email: any):Observable<IConductores>{
     return this.httpclient.get<IConductores>(`${environment.apiUrl}/conductores/?email=${email}`);
+  }
+
+  getAllPasajeros():Observable<IPasajeros>{
+    return this.httpclient.get<IPasajeros>(`${environment.apiUrl}/pasajeros`);
+  }
+
+  getUserByEmail1(email: any):Observable<IPasajeros>{
+    return this.httpclient.get<IPasajeros>(`${environment.apiUrl}/pasajeros/?email=${email}`);
   }
 
   isLoggedIn(){

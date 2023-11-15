@@ -44,7 +44,12 @@ export class RegisterCondPage implements OnInit {
 
   registroChofer() {
     if (this.registerForm.valid) {
-      this.apicrud.crearConductor(this.registerForm.value).subscribe(resp => {
+      const conductorData = {
+        ...this.registerForm.value,
+        rol: 'Conductor'
+      };
+  
+      this.apicrud.crearConductor(conductorData).subscribe(resp => {
         this.userdata = resp;
         if (this.userdata.length > 0) {
           this.NewConductor = {
@@ -54,7 +59,7 @@ export class RegisterCondPage implements OnInit {
             patente: this.userdata[0].patente,
             password: this.userdata[0].password
           };
-
+          
         }
       });
     }

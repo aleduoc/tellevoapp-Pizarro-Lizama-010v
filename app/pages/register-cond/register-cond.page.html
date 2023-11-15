@@ -34,7 +34,7 @@
           </div>
 
           <ion-item>
-            <ion-select aria-label="Fruit" interface="action-sheet" placeholder="sede duoc uc" formControlName="sede">
+            <ion-select aria-label="Fruit" interface="action-sheet" placeholder="Sede Duoc Uc" formControlName="sede">
               <ion-select-option value="alameda">Alameda</ion-select-option>
               <ion-select-option value="antonio-varas">Antonio Varas</ion-select-option>
               <ion-select-option value="maipu">Maipú</ion-select-option>
@@ -55,9 +55,9 @@
             <ion-input type="text" placeholder="rut" name="rut" formControlName="rut"></ion-input>
             <ion-icon name="person-circle-outline"></ion-icon>
           </ion-item>
-          <div style="color: red;" *ngIf="registerForm.get('rut')?.invalid && (registerForm.get('rut')?.dirty || registerForm.get('rut')?.touched)">
-            <div *ngIf="registerForm.get('rut')?.hasError('validatorpatterns')">
-              <p>El rut debe ser válido</p>
+          <div class="container" *ngIf="registerForm.get('rut')?.invalid && (registerForm.get('rut')?.dirty || registerForm.get('rut')?.touched)">
+            <div class="mensaje" *ngIf="registerForm.get('rut')?.hasError('required')">
+              <p>¡Rut obligatorio</p>
             </div>
           </div>
 
@@ -65,6 +65,17 @@
             <ion-input type="text" placeholder="patente" name="patente" formControlName="patente"></ion-input>
             <ion-icon name="car-sport-outline"></ion-icon>
           </ion-item>
+          <div class="container" *ngIf="registerForm.get('patente')?.invalid && (registerForm.get('patente')?.dirty || registerForm.get('patente')?.touched)">
+            <div class="mensaje" *ngIf="registerForm.get('patente')?.hasError('required')">
+              <p>¡Patente obligatoria!</p>
+            </div>
+            <div class="mensaje" *ngIf="registerForm.get('patente')?.hasError('minlength')">
+              <p>¡La patente debe tener 6 carácteres!</p>
+            </div>
+            <div class="mensaje" *ngIf="registerForm.get('patente')?.hasError('maxlength')">
+              <p>¡La patente debe tener 6 carácteres!</p>
+            </div>
+          </div>
 
           <ion-item>
             <ion-input type="password" placeholder="contraseña" name="password" formControlName="password"></ion-input>

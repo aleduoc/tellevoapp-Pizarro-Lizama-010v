@@ -22,18 +22,40 @@
 
     <div class="ion-padding">
 
-      <form #formulario="ngForm" (keyup.enter)="Confirmar()">
+      <form [formGroup]="loginForm" #formulario="ngForm" (keyup.enter)="Confirmar()">
 
 
         <ion-item>
-          <ion-input type="email" placeholder="correo institucional" name="email" class="input" [(ngModel)]="usuario.email"></ion-input>
+          <ion-input type="email" placeholder="correo institucional" name="email" class="input" formControlName="email"></ion-input>
           <ion-icon name="mail-outline"></ion-icon>
         </ion-item>
+        <div *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+          <div style="color: red;" *ngIf="loginForm.get('email')?.hasError('required')">
+            El Email es obligatorio
+          </div>
+          <div style="color:red" *ngIf="loginForm.get('email')?.hasError">
+            Este campo debe ser un Email
+          </div>
+        </div>
+        
 
         <ion-item>
-          <ion-input type="password" placeholder="contraseña" name="password" class="input" [(ngModel)]="usuario.password"></ion-input>
+          <ion-input type="password" placeholder="contraseña" name="password" class="input" formControlName="password"></ion-input>
           <ion-icon name="lock-closed-outline"></ion-icon>
         </ion-item>
+        <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+          <div  *ngIf="loginForm.get('password')?.hasError('required')">
+            La contraseña es obligatorio
+          </div>
+          <div style="color:red" *ngIf="loginForm.get('password')?.hasError('minlength')">
+            *Password mínimo 8 caracteres
+          </div>
+        </div>
+        <div *ngIf="showAlert">
+          <div style="color: red;">
+            <p>Correo Electrónico o Contraseña no existen</p>
+          </div>
+        </div>
 
         <div class="password">
           <a [routerLink]="['/newpass']">¿Has olvidado tu contraseña?</a>
@@ -41,10 +63,10 @@
 
 
 
-      <ion-button [routerLink]="['/home']" size="small" (click)="Confirmar()" expand="block" fill="solid" color="primary" shape="round">
-        Confirmar
-      </ion-button>
-    </form>
+        <ion-button size="small" (click)="Confirmar()" [disabled]="!loginForm.valid" expand="block" fill="solid" color="primary" shape="round">
+          Confirmar
+        </ion-button>
+      </form>
 
       
     </div>
