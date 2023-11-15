@@ -24,7 +24,6 @@ ion-item {
 
 }
 
-
 .password{
     display: flex;
     justify-content: flex-end;
@@ -40,4 +39,12 @@ ion-button {
     margin-right: 25%;
     margin-top: 15%;
 
+}
+
+.mensaje {
+    font-size: 0.7rem;
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    color: red;
 }
