@@ -62,9 +62,13 @@
       
 
       <ion-card-content>
-        <ion-button  size="small" (click)="trazarRuta()" expand="block" fill="solid" color="primary" shape="round">
-          Trazar la ruta
-        </ion-button>
+        <ion-button id="present-alert" size="small" [disabled]="!direccionSeleccionada" (click)="trazarRuta()" expand="block" fill="solid" color="primary" shape="round">Trazar ruta</ion-button>
+        <ion-alert
+          trigger="present-alert"
+          header="Ingrese el precio del viaje"
+          [buttons]="alertButtons"
+          [inputs]="alertInputs"
+        ></ion-alert>
       </ion-card-content>
 
       <ion-card-content style="text-align: center;">

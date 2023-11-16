@@ -2,7 +2,7 @@
 /// <reference types="@types/googlemaps" />
 
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MenuController, ToastController } from '@ionic/angular';
+import { MenuController, ToastController, AlertController } from '@ionic/angular';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { Router } from '@angular/router';
 import { GoogleMapsService } from 'src/app/servicios/google-map.service';
@@ -15,10 +15,25 @@ declare var google: any;
 })
 
 export class ViajarconductorPage implements OnInit {
-  
+
+  direccionSeleccionada: boolean = false;
   usuario = {
     email: "",
   }
+
+  public alertButtons = ['OK'];
+  public alertInputs = [
+    {
+      type: 'number',
+      placeholder: 'precio',
+      min: 2000,
+      max: 10000,
+    },
+    {
+      type: 'textarea',
+      placeholder: 'nota adicional',
+    },
+  ];
 
   @ViewChild('ubicacionInput') ubicacionInput: any;
 
@@ -26,7 +41,7 @@ export class ViajarconductorPage implements OnInit {
 
   lat = 0; // Latitud inicial
   lng = 0; // Longitud inicial
-  inputText = ''; // Agregamos esta variable para almacenar el texto del input
+  inputText = ''; //  texto del input direccion
   predictions: google.maps.places.QueryAutocompletePrediction[] = [];
 
   constructor(
@@ -36,6 +51,8 @@ export class ViajarconductorPage implements OnInit {
     private googleMapsService: GoogleMapsService,
     private router: Router
   ) { this.obtainStorage(); }
+
+  
 
   ngOnInit(): void {
     this.googleMapsService.obtenerUbicacionActual()
@@ -86,6 +103,9 @@ export class ViajarconductorPage implements OnInit {
     } else {
       this.showToast('No se pudo obtener la coordenada de la dirección.');
     }
+    this.direccionSeleccionada = false;
+
+    
   }
 
   async searchPredictions() {
@@ -97,7 +117,7 @@ export class ViajarconductorPage implements OnInit {
       input: this.inputText,
       sessionToken: sessionToken,
       origin: new google.maps.LatLng(this.lat, this.lng),
-      componentRestrictions: { country: 'CL' } // Código de país de Chile
+      componentRestrictions: { country: 'CL' } 
     };
   
     autocompleteService.getPlacePredictions(options, (predictions: any, status: any) => {
@@ -114,6 +134,7 @@ export class ViajarconductorPage implements OnInit {
   selectPrediction(prediction: any) {
     this.inputText = prediction.description;
     this.predictions = [];
+    this.direccionSeleccionada = true;
   }
 
   async showToast(msg: any) {
