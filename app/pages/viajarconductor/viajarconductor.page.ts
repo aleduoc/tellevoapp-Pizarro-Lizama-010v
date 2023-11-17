@@ -15,11 +15,44 @@ declare var google: any;
 })
 
 export class ViajarconductorPage implements OnInit {
+  ngOnInit(): void {
+    this.googleMapsService.obtenerUbicacionActual()
+      .then(({ lat, lng }) => {
+        this.lat = lat;
+        this.lng = lng;
+        this.googleMapsService.initAutocompleteAndDirectionMap('map', { lat, lng });
+      })
+      .catch((error) => {
+        console.error('Error al obtener la ubicación:', error);
+      });
+  }
+
+  constructor(
+    private menuController: MenuController,
+    public authservice: AuthService,
+    public alertcontroller: AlertController,
+    private toastcontroller: ToastController,
+    private googleMapsService: GoogleMapsService,
+    private router: Router
+  ) { this.obtainStorage(); }
 
   direccionSeleccionada: boolean = false;
+
   usuario = {
     email: "",
+    patente:"",
   }
+
+  detalle = {
+    email:"",
+    direccion: "",
+    precio: 0,
+    nota: "",
+    patente: "",
+  }
+
+  //Put Detalle
+  public direccion:any;
 
   public alertButtons = ['OK'];
   public alertInputs = [
@@ -43,47 +76,7 @@ export class ViajarconductorPage implements OnInit {
   lng = 0; // Longitud inicial
   inputText = ''; //  texto del input direccion
   predictions: google.maps.places.QueryAutocompletePrediction[] = [];
-
-  constructor(
-    private menuController: MenuController,
-    public authservice: AuthService,
-    private toastcontroller: ToastController,
-    private googleMapsService: GoogleMapsService,
-    private router: Router
-  ) { this.obtainStorage(); }
-
   
-
-  ngOnInit(): void {
-    this.googleMapsService.obtenerUbicacionActual()
-      .then(({ lat, lng }) => {
-        this.lat = lat;
-        this.lng = lng;
-        this.googleMapsService.initAutocompleteAndDirectionMap('map', { lat, lng });
-      })
-      .catch((error) => {
-        console.error('Error al obtener la ubicación:', error);
-      });
-  }
-
-  obtainStorage() {
-    let email = sessionStorage.getItem("email");
-
-    if (email) {
-      this.usuario.email = email;
-    }
-  }
-
-  logout() {
-    this.authservice.logoutUser();
-    this.router.navigate(['/inicio']);
-    this.showToast('Se ha cerrado sesión');
-  }
-
-  MostrarMenu() {
-    this.menuController.open('first');
-  }
-
   async trazarRuta() {
     const inputElement = this.ubicacionInput.el.querySelector('input');
     inputElement.blur();
@@ -100,12 +93,15 @@ export class ViajarconductorPage implements OnInit {
     if (result) {
       const origin = { lat: this.lat, lng: this.lng };
       this.googleMapsService.trazarRuta('map', origin, result);
+      //Codigo de implementacion Diego
+      this.detalle.email = this.usuario.email;
+      this.detalle.direccion = destination;
+      this.detalle.patente = this.usuario.patente;
+      this.authservice.CrearDetalle(this.detalle).subscribe();
     } else {
       this.showToast('No se pudo obtener la coordenada de la dirección.');
     }
     this.direccionSeleccionada = false;
-
-    
   }
 
   async searchPredictions() {
@@ -129,8 +125,6 @@ export class ViajarconductorPage implements OnInit {
     });
   }
   
-  
-
   selectPrediction(prediction: any) {
     this.inputText = prediction.description;
     this.predictions = [];
@@ -144,4 +138,26 @@ export class ViajarconductorPage implements OnInit {
     })
     toast.present();
   }
+
+  logout() {
+    this.authservice.logoutUser();
+    this.router.navigate(['/inicio']);
+    this.showToast('Se ha cerrado sesión');
+  }
+
+  MostrarMenu() {
+    this.menuController.open('first');
+  }
+
+  obtainStorage() {
+    let email = sessionStorage.getItem("email");
+    let patente = sessionStorage.getItem("patente");
+
+    if (email) {
+      this.usuario.email = email;
+    }if (patente) {
+      this.usuario.patente = patente;
+    }
+  }
+
 }

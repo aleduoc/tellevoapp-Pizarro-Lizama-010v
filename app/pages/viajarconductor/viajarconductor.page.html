@@ -54,21 +54,18 @@
         <ion-icon name="locate-outline"></ion-icon>
       </ion-item>
       
+      
       <ul class="prediction-list" *ngIf="predictions.length > 0">
         <li *ngFor="let prediction of predictions" (click)="selectPrediction(prediction)">
           {{ prediction.description }}
         </li>
       </ul>
       
-
+      
       <ion-card-content>
+        <ion-input type="number" *ngIf="direccionSeleccionada" placeholder="Tarifa" style="margin-top: -30px;" [(ngModel)]="detalle.precio"></ion-input>
+        <ion-input type="text" *ngIf="direccionSeleccionada" placeholder="Nota Adicional" style="margin-bottom: 10px;" [(ngModel)]="detalle.nota"></ion-input>
         <ion-button id="present-alert" size="small" [disabled]="!direccionSeleccionada" (click)="trazarRuta()" expand="block" fill="solid" color="primary" shape="round">Trazar ruta</ion-button>
-        <ion-alert
-          trigger="present-alert"
-          header="Ingrese el precio del viaje"
-          [buttons]="alertButtons"
-          [inputs]="alertInputs"
-        ></ion-alert>
       </ion-card-content>
 
       <ion-card-content style="text-align: center;">

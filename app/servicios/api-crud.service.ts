@@ -40,8 +40,17 @@ export class ApiCrudService {
   ActualizarPasajero(pasajero:any):Observable<IPasajeros>{
     return this.httpclient.put<IPasajeros>(`${environment.apiUrl}/pasajeros/${pasajero.id}`, pasajero);
   }
+
+  
   ActualizarConductor(conductor:any):Observable<IConductores>{
     return this.httpclient.put<IConductores>(`${environment.apiUrl}/conductores/${conductor.id}`, conductor);
+  }
+
+  verificarCorreoExistente(correo: string): Observable<any> {
+    return this.httpclient.get<any>(`${environment.apiUrl}/pasajeros/?email=${correo}`);
+  }
+  verificarCorreoExistenteAlumno(correo: string): Observable<any> {
+    return this.httpclient.get<any>(`${environment.apiUrl}/conductores/?email=${correo}`);
   }
 
 }

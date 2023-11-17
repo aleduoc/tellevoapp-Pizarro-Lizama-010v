@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { IConductores } from '../pages/interfaces/interfaces';
 import { IPasajeros } from '../pages/interfaces/interfaces';
 import { Router } from '@angular/router';
+import { IDetalle,IDetalles } from '../pages/interfaces/interfaces';
 
 
 @Injectable({
@@ -41,4 +42,16 @@ export class AuthService {
     this.router.navigate(['/events'])
   }
 
+  //detalle del viaje
+  CrearDetalle(newmensaje:IDetalle):Observable<IDetalle>{
+    return this.httpclient.post<IDetalles>(`${environment.apiUrl}/detalle`, newmensaje);
+  }
+
+  getAllViajes():Observable<IDetalles>{
+    return this.httpclient.get<IDetalles>(`${environment.apiUrl}/detalle`);
+  }
+
+  getViajeWithId(id:number):Observable<IDetalles>{
+    return this.httpclient.get<IDetalles>(`${environment.apiUrl}/detalle/?id=${id}`);
+  }
 }

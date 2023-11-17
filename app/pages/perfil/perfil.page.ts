@@ -9,8 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
-  
-  isReadOnly: boolean = true;
 
   usuario={
     id: "",
@@ -40,13 +38,9 @@ export class PerfilPage implements OnInit {
 
   ionViewWillEnter(){
     let email = sessionStorage.getItem("email")
-    let rol = sessionStorage.getItem("rol")
 
     if(email){
       this.usuario.email = email
-    }
-    if(rol){
-      this.usuario.rol = rol
     }
 
     this.getConductorById(email);
@@ -87,15 +81,14 @@ export class PerfilPage implements OnInit {
 
   updatePasajero(){
     this.apicrud.ActualizarPasajero(this.usuario).subscribe();
-    this.router.navigateByUrl("/viajar").then(() => {
-      window.location.reload();})
+    this.router.navigateByUrl('/viajar')
     sessionStorage.setItem('sede',this.usuario.sede);  
   }
 
-  updateConductor(){
+  actualizarConductor(){
     this.apicrud.ActualizarConductor(this.usuario).subscribe();
-    this.router.navigateByUrl("/viajarconductor").then(() => {
-      window.location.reload();})
-    sessionStorage.setItem('sede',this.usuario.sede);  
+    this.router.navigateByUrl('/viajarconductor')
+    sessionStorage.setItem('sede',this.usuario.sede); 
   }
+
 }

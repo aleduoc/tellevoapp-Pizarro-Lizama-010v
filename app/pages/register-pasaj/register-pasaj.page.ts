@@ -17,13 +17,35 @@ export class RegisterPasajPage implements OnInit {
   registerForm: FormGroup;
   userdata: any;
 
+  async correoExistenteValidator(control: AbstractControl): Promise<ValidationErrors | null> {
+    const correo = control.value;
+  
+    try {
+      const resp1 = await this.apicrud.verificarCorreoExistente(correo).toPromise();
+      const resp2 = await this.apicrud.verificarCorreoExistenteAlumno(correo).toPromise();
+  
+      if (resp1.length > 0 || resp2.length > 0) {
+        return { correoExistente: true };
+      }
+  
+      return null;
+    } catch (error) {
+      console.error(error);
+      return { correoExistente: true };
+    }
+  }
+
   constructor(private menuController: MenuController,
               private alertController: AlertController,
               private router: Router,
               private apicrud: ApiCrudService,
               private fbuilder: FormBuilder) { 
                 this.registerForm = this.fbuilder.group({
-                  'email': new FormControl("", [Validators.required, Validators.email]),
+                  'email': new FormControl('', {
+                    validators: [Validators.required, Validators.email],
+                    asyncValidators: [this.correoExistenteValidator.bind(this)],
+                    updateOn: 'blur'
+                  }),
                   'sede': new FormControl("",[Validators.required]),
                   'rut': new FormControl("",[Validators.required, Validators.minLength(4),Validators.minLength(9),Validators.pattern(/^(\d{1,3}(?:\.\d{1,3}){2}-\d|(\d{1,3}){2}-\d{1,3}(?:\.\d{1,3})|(\d{1,3}){2}-\d{1,3}(?:\.\d{1,3})?)$/)]),
                   'password': new FormControl ("", [Validators.required, Validators.minLength(8)]),

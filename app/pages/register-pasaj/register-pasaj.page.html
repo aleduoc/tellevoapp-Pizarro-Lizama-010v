@@ -31,6 +31,9 @@
         <div class="mensaje" *ngIf="registerForm.get('email')?.hasError('email')">
           <p>¡Debe ser una dirección de email válida!</p>
         </div>
+        <div class="mensaje" *ngIf="registerForm.get('email')?.hasError('correoExistente')">
+          <p>Esta dirección de correo ya existe</p>
+        </div>
       </div>
 
       <ion-item>

@@ -61,6 +61,11 @@ const routes: Routes = [
     path: 'login2',
     loadChildren: () => import('./pages/login2/login2.module').then( m => m.Login2PageModule)
   },
+  {
+    path: 'viajes-list/:id',
+    loadChildren: () => import('./pages/viajes-list/viajes-list.module').then( m => m.ViajesListPageModule)
+  },
+
 
 ];
 

@@ -4,7 +4,7 @@
       "id": 1,
       "rut": "18.663.950-2",
       "email": "nico.lizama@duocuc.cl",
-      "sede": "maipu",
+      "sede": "plaza-vespucio",
       "password": "12345678",
       "rol": "Pasajero"
     }
@@ -14,10 +14,85 @@
       "id": 1,
       "rut": "20.999.888-0",
       "email": "alex.pizarro@duocuc.cl",
-      "sede": "maipu",
+      "sede": "melipilla",
       "patente": "GKMH77",
       "password": "12345678",
       "rol": "Conductor"
+    },
+    {
+      "email": "diegorojas@gmail.com",
+      "sede": "plaza-oeste",
+      "rut": "12.333.444-6",
+      "patente": "GHJK77",
+      "password": "12345678",
+      "rol": "Conductor",
+      "id": 2
+    }
+  ],
+  "detalle": [
+    {
+      "email": "alex.pizarro@duocuc.cl",
+      "direccion": "Avenida Manuel Montt, Providencia, Chile",
+      "precio": "50000",
+      "nota": "Aqui toy shushetu",
+      "patente": "3287283723",
+      "id": 1
+    },
+    {
+      "email": "alex.pizarro@duocuc.cl",
+      "direccion": "Avenida Los Cerrillos, Cerrillos, Chile",
+      "precio": "",
+      "nota": "",
+      "patente": "GKMH77",
+      "id": 2
+    },
+    {
+      "email": "alex.pizarro@duocuc.cl",
+      "direccion": "Avenida Manuel Montt, Providencia, Chile",
+      "precio": "",
+      "nota": "",
+      "patente": "GKMH77",
+      "id": 3
+    },
+    {
+      "email": "alex.pizarro@duocuc.cl",
+      "direccion": "Aeropuerto Internacional Arturo Merino Benítez - Armando Cortinez Oriente, Pudahuel, Chile",
+      "precio": 7,
+      "nota": "Hola",
+      "patente": "GKMH77",
+      "id": 4
+    },
+    {
+      "email": "alex.pizarro@duocuc.cl",
+      "direccion": "Aeropuerto Internacional Arturo Merino Benítez - Armando Cortinez Oriente, Pudahuel, Chile",
+      "precio": 343424,
+      "nota": "Hola",
+      "patente": "GKMH77",
+      "id": 5
+    },
+    {
+      "email": "alex.pizarro@duocuc.cl",
+      "direccion": "Avenida Portales 2991, Maipú, Chile",
+      "precio": 90000,
+      "nota": "llevando a un wekito",
+      "patente": "GKMH77",
+      "id": 6
+    },
+    {
+      "email": "alex.pizarro@duocuc.cl",
+      "direccion": "Avenida Los Cerrillos 2800, Cerrillos, Chile",
+      "precio": 30000,
+      "nota": "diego weko",
+      "patente": "GKMH77",
+      "id": 7
+    },
+    {
+      "email": "alex.pizarro@duocuc.cl",
+      "direccion": "Av. Portales 2991, Maipú, Chile",
+      "precio": 3900,
+      "nota": "estoy en la esquina",
+      "patente": "GKMH77",
+      "id": 8
     }
   ]
 }

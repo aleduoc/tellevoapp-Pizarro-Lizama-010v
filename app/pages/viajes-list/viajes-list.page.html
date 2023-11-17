@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>viajesList</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"
+        color=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="mensaje">
+      <p>Recuerda que despues del tiempo limite del QR ya no aparecerá en el detalle!
+      </p>
+    </div>
+  </div>
+
+  <ion-card class="cartas">
+
+    <ion-card-header>
+      <ion-card-subtitle>ID Viaje #{{detalle.id}}</ion-card-subtitle>
+      <ion-card-title>Email Uber: {{detalle.email}} </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Patente: {{detalle.patente}} </p>
+    </ion-card-content>
+
+    <ion-card class="clase-color">
+      <ion-card-content style="text-align: center;">
+        <ion-card-subtitle>Nota del conductor</ion-card-subtitle>
+        <br>
+        {{detalle.nota}}
+      </ion-card-content>
+    </ion-card>
+    <ion-card-subtitle class="date">Tarifa: ${{detalle.precio}}</ion-card-subtitle>
+  </ion-card>
+</ion-content>

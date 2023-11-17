@@ -37,3 +37,22 @@ export interface IPasajero {
     rol: string,
     
 }
+
+//Detalle Ruta
+export interface IDetalles {
+    id: number,
+    email: string,
+    direccion: string,
+    precio: number,
+    nota: string,
+    patente: string,
+}
+
+
+export interface IDetalle {
+    email: string,
+    direccion: string,
+    precio: number,
+    nota: string,
+    patente: string,
+}
