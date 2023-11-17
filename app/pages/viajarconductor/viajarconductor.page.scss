@@ -25,3 +25,22 @@ ion-item {
 ul.prediction-list li {
     cursor: pointer;
   }
+
+#map{
+    margin: auto;
+}
+
+/* En tu archivo de estilos global o en el componente específico */
+.disable-number-input::-webkit-inner-spin-button,
+.disable-number-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.disable-number-input {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.letra{
+     font-size: x-small;
+}

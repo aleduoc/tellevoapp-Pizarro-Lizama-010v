@@ -1,4 +1,3 @@
-// google-map.service.ts
 import { Injectable } from '@angular/core';
 import { environments } from 'src/environments/environment';
 
@@ -10,12 +9,45 @@ declare var google: any;
 export class GoogleMapsService {
   private apiKey: string;
   private marker: any;
+  private map: any;
+
+
+
 
   constructor() {
     // Obtener la API Key desde el environment
     this.apiKey = environments.googleMapsApiKey;
     this.marker = new google.maps.Marker();
   }
+  
+  initMap(lat: number, lng: number, elementId: string): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      const map = new google.maps.Map(document.getElementById(elementId), {
+        center: { lat, lng },
+        zoom: 15
+      });
+  
+      this.marker = new google.maps.Marker({
+        position: { lat, lng },
+        map: map,
+        title: 'Mi Ubicación',
+        animation: google.maps.Animation.BOUNCE,
+        label: {
+          text: 'Estás aquí',
+          color: 'black',
+          fontWeight: 'bold'
+        }
+      });
+  
+      // Guardar el mapa para futuras referencias
+      this.map = map;
+  
+      // Resuelve la promesa una vez que el mapa y el marcador estén inicializados
+      resolve();
+    });
+  }
+  
+  
 
   obtenerUbicacionActual(): Promise<{ lat: number, lng: number }> {
     return new Promise((resolve, reject) => {
@@ -33,23 +65,7 @@ export class GoogleMapsService {
     });
   }
 
-  initMap(lat: number, lng: number, elementId: string): void {
-    const map = new google.maps.Map(document.getElementById(elementId), {
-      center: { lat, lng },
-      zoom: 15
-    });
 
-    new google.maps.Marker({
-      position: { lat, lng },
-      map: map,
-      title: 'Mi Ubicación',
-      label: {
-        text: 'Estás aquí',
-        color: 'black',
-        fontWeight: 'bold'
-      }
-    });
-  }
 
   initAutocompleteAndDirectionMap(elementId: string, origin: { lat: number, lng: number }): void {
     const map = new google.maps.Map(document.getElementById(elementId), {
@@ -61,6 +77,7 @@ export class GoogleMapsService {
       position: { lat: origin.lat, lng: origin.lng },
       map: map,
       title: 'Mi Ubicación',
+      animation: google.maps.Animation.BOUNCE,
       label: {
         text: 'Estás aquí',
         color: 'black',
@@ -124,6 +141,23 @@ export class GoogleMapsService {
       }
     });
   }
+
+  actualizarUbicacionMapa(newLocation: { lat: number; lng: number }): void {
+    if (this.map && this.marker) {
+      // Actualiza la posición del marcador en el mapa
+      this.marker.setPosition(new google.maps.LatLng(newLocation.lat, newLocation.lng));
+  
+      // Centra el mapa en la nueva ubicación
+      this.map.panTo(new google.maps.LatLng(newLocation.lat, newLocation.lng));
+    } else {
+      console.error('Mapa o marcador no inicializado.');
+    }
+  }
+  
+  
+  
+  
+  
 
   private renderAddressAndDirection(map: any, origin: any, destination: any): void {
     // Renderizar dirección

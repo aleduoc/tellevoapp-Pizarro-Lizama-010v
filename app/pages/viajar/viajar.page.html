@@ -29,7 +29,7 @@
 
   <div class="ion-padding">
 
-    <ion-list> 
+    <ion-list > 
       <ion-item *ngFor="let a of detalle; let i=index" [routerLink]="['/viajes-list', a.id]" class="ion-item-background">
         <ion-label>{{a['direccion']}}</ion-label>
         <ion-label>{{a['patente']}}</ion-label>
@@ -39,7 +39,7 @@
 
     <ion-card-content>
       <ion-button  size="small" (click)="Viajar()" expand="block" fill="solid" color="primary" shape="round">
-        Confirmar
+        Buscar conductores
       </ion-button>
     </ion-card-content>
 
@@ -49,10 +49,12 @@
         <ion-icon slot="icon-only" name="exit-outline" color="dark" size="small" ></ion-icon>
       </ion-button>
     </ion-card-content>
-    
-    <div *ngIf="mostrarCarga" class="mensaje-carga">
-      Estamos buscando un vehículo disponible, porfavor espere...
-    </div>
+
+<!--       <div *ngIf="mostrarCarga" class="mensaje-carga">
+        Buscando vehículos disponibles, porfavor espere...
+      </div>  -->
+
+
 
   </div>
 </ion-content>

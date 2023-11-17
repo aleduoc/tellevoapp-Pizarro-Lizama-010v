@@ -18,7 +18,7 @@ export class ViajarPage implements OnInit {
   detalle:IDetalles[]=[];
   usuario: any;
 
-  mostrarCarga: boolean = false;
+  // mostrarCarga: boolean = false;
 
   constructor(private alertController: AlertController,
               private menuController: MenuController,
@@ -34,12 +34,13 @@ export class ViajarPage implements OnInit {
     this.menuController.open('first');
   }
 
-  Viajar() {
-    this.mostrarCarga = true;
+    Viajar(): void {
+/*     this.mostrarCarga = true;
     setTimeout(() => {
       this.mostrarCarga = false;
-    }, 4000);
-  }
+    }, 4000); */
+    location.reload();
+    } 
 
   obtainStorage() {
     let email = sessionStorage.getItem("email");
@@ -66,7 +67,7 @@ export class ViajarPage implements OnInit {
   //CargarTodosLosViajes
   async LoadViajes(event?:InfiniteScrollCustomEvent){
     const load = await this.loadCtrl.create({ 
-      message: "Cargando Sus Viajes",
+      message: "Buscando conductores",
       spinner:"crescent"
     });
     await load.present();

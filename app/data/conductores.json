@@ -4,7 +4,7 @@
       "id": 1,
       "rut": "18.663.950-2",
       "email": "nico.lizama@duocuc.cl",
-      "sede": "plaza-vespucio",
+      "sede": "maipu",
       "password": "12345678",
       "rol": "Pasajero"
     }
@@ -14,7 +14,7 @@
       "id": 1,
       "rut": "20.999.888-0",
       "email": "alex.pizarro@duocuc.cl",
-      "sede": "melipilla",
+      "sede": "maipu",
       "patente": "GKMH77",
       "password": "12345678",
       "rol": "Conductor"
@@ -56,43 +56,59 @@
     },
     {
       "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Aeropuerto Internacional Arturo Merino Benítez - Armando Cortinez Oriente, Pudahuel, Chile",
-      "precio": 7,
-      "nota": "Hola",
+      "direccion": "Graneros, Chile",
+      "precio": 2000,
+      "nota": "",
       "patente": "GKMH77",
       "id": 4
     },
     {
       "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Aeropuerto Internacional Arturo Merino Benítez - Armando Cortinez Oriente, Pudahuel, Chile",
-      "precio": 343424,
-      "nota": "Hola",
+      "direccion": "Mallplaza Oeste - Avenida Américo Vespucio, Santiago, Cerrillos, Chile",
+      "precio": 5000,
+      "nota": "sdssd",
       "patente": "GKMH77",
       "id": 5
     },
     {
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Avenida Portales 2991, Maipú, Chile",
-      "precio": 90000,
-      "nota": "llevando a un wekito",
-      "patente": "GKMH77",
+      "email": "nico.lizama@duocuc.cl",
+      "direccion": "Ñuñoa, Chile",
+      "precio": 2000,
+      "nota": "",
+      "patente": "",
       "id": 6
     },
     {
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Avenida Los Cerrillos 2800, Cerrillos, Chile",
-      "precio": 30000,
-      "nota": "diego weko",
-      "patente": "GKMH77",
+      "email": "nico.lizama@duocuc.cl",
+      "direccion": "Desierto de Atacama, Antofagasta, Chile",
+      "precio": 2000,
+      "nota": "",
+      "patente": "",
       "id": 7
     },
     {
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Av. Portales 2991, Maipú, Chile",
-      "precio": 3900,
-      "nota": "estoy en la esquina",
-      "patente": "GKMH77",
+      "email": "nico.lizama@duocuc.cl",
+      "direccion": "Desierto de Atacama, Puente Alto, Chile",
+      "precio": 2000,
+      "nota": "",
+      "patente": "",
       "id": 8
+    },
+    {
+      "email": "nico.lizama@duocuc.cl",
+      "direccion": "Futaleufu, Futaleufú, Chile",
+      "precio": 2000,
+      "nota": "",
+      "patente": "",
+      "id": 9
+    },
+    {
+      "email": "nico.lizama@duocuc.cl",
+      "direccion": "Valparaíso, Chile",
+      "precio": null,
+      "nota": "",
+      "patente": "",
+      "id": 10
     }
   ]
 }

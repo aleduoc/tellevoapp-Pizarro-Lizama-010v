@@ -63,10 +63,21 @@
       
       
       <ion-card-content>
-        <ion-input type="number" *ngIf="direccionSeleccionada" placeholder="Tarifa" style="margin-top: -30px;" [(ngModel)]="detalle.precio"></ion-input>
+        <ion-input type="number" *ngIf="direccionSeleccionada" placeholder="Tarifa" style="margin-top: -30px;" [(ngModel)]="detalle.precio" class="disable-number-input"></ion-input>
         <ion-input type="text" *ngIf="direccionSeleccionada" placeholder="Nota Adicional" style="margin-bottom: 10px;" [(ngModel)]="detalle.nota"></ion-input>
+      
         <ion-button id="present-alert" size="small" [disabled]="!direccionSeleccionada" (click)="trazarRuta()" expand="block" fill="solid" color="primary" shape="round">Trazar ruta</ion-button>
+        
       </ion-card-content>
+      <ion-row >
+        <ion-col size="6" >
+          <ion-button class="letra" id="present-alert"  [disabled]="!iniciarViajeHabilitado" (click)="iniciarViaje()" expand="block" fill="solid" color="primary" shape="round">Iniciar viaje</ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button class="letra" id="present-alert" [disabled]="!cancelarViajeHabilitado" (click)="terminarViaje()" padding="3em" expand="block" fill="solid" color="primary" shape="round">Cancelar viaje</ion-button>
+        </ion-col>
+      </ion-row>
+      
 
       <ion-card-content style="text-align: center;">
         <ion-button  size="small" [routerLink]="['/inicio']"(click)="logout()">Cerrar Sesión
