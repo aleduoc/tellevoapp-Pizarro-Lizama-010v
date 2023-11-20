@@ -15,7 +15,6 @@ export class GoogleMapsService {
 
 
   constructor() {
-    // Obtener la API Key desde el environment
     this.apiKey = environments.googleMapsApiKey;
     this.marker = new google.maps.Marker();
   }
@@ -42,7 +41,7 @@ export class GoogleMapsService {
       // Guardar el mapa para futuras referencias
       this.map = map;
   
-      // Resuelve la promesa una vez que el mapa y el marcador estén inicializados
+
       resolve();
     });
   }

@@ -50,6 +50,7 @@ export interface IDetalles {
 
 
 export interface IDetalle {
+    id: number,
     email: string,
     direccion: string,
     precio: number,

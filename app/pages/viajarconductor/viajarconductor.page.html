@@ -24,57 +24,83 @@
     <p class="subTitle">Bienvenido {{ usuario.email }}</p>
   </div>
 
-  <ion-card id="map" style="height: 10em; width: 16em;">
 
-  </ion-card>
+
+<ion-card id="map" style="height: 10em; width: 16em;">
+  <ion-spinner *ngIf="mapaCargando"></ion-spinner>
+</ion-card>
 
   <div class="ion-padding">
 
-      <ion-card>
-        <ion-segment value="default" style="width: auto">
-          <ion-segment-button  value="default">
-            <ion-label style="font-size: smaller;" >Disponible</ion-label>
-          </ion-segment-button>
-          <ion-segment-button value="segment">
-            <ion-label style="font-size: smaller">No disponible</ion-label>
-          </ion-segment-button>
-        </ion-segment>
-      </ion-card>
-      <ion-item>
-        <ion-input
-          type="text"
-          placeholder="¿Hacia dónde te diriges?"
-          id="ubicacion"
-          #ubicacionInput
-          name="ubicacion"
-          class="input"
-          [(ngModel)]="inputText"
-          (ionInput)="searchPredictions()"
-        ></ion-input>
-        <ion-icon name="locate-outline"></ion-icon>
-      </ion-item>
-      
-      
-      <ul class="prediction-list" *ngIf="predictions.length > 0">
-        <li *ngFor="let prediction of predictions" (click)="selectPrediction(prediction)">
-          {{ prediction.description }}
-        </li>
-      </ul>
-      
-      
-      <ion-card-content>
-        <ion-input type="number" *ngIf="direccionSeleccionada" placeholder="Tarifa" style="margin-top: -30px;" [(ngModel)]="detalle.precio" class="disable-number-input"></ion-input>
-        <ion-input type="text" *ngIf="direccionSeleccionada" placeholder="Nota Adicional" style="margin-bottom: 10px;" [(ngModel)]="detalle.nota"></ion-input>
-      
-        <ion-button id="present-alert" size="small" [disabled]="!direccionSeleccionada" (click)="trazarRuta()" expand="block" fill="solid" color="primary" shape="round">Trazar ruta</ion-button>
-        
-      </ion-card-content>
+    <ion-card>
+      <ion-segment [(ngModel)]="estadoDisponible">
+        <ion-segment-button value="default">
+          <ion-label style="font-size: smaller;">Disponible</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="segment">
+          <ion-label style="font-size: smaller">No disponible</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-card>
+    
+    <ion-item>
+      <ion-input
+        type="text"
+        placeholder="¿Hacia dónde te diriges?"
+        id="ubicacion"
+        #ubicacionInput
+        name="ubicacion"
+        class="input"
+        [(ngModel)]="inputText"
+        (ionInput)="searchPredictions()"
+        [disabled]="estadoDisponible === 'segment'"
+      ></ion-input>
+      <ion-icon name="locate-outline"></ion-icon>
+    </ion-item>
+    
+    <ul class="prediction-list" *ngIf="predictions.length > 0 && estadoDisponible === 'default'">
+      <li *ngFor="let prediction of predictions" (click)="selectPrediction(prediction)">
+        {{ prediction.description }}
+      </li>
+    </ul>
+    
+    <ion-card-content>
+      <ion-input
+        type="number"
+        *ngIf="direccionSeleccionada && estadoDisponible === 'default'"
+        placeholder="Tarifa"
+        style="margin-top: -30px;"
+        [(ngModel)]="detalle.precio"
+        class="disable-number-input"
+      ></ion-input>
+      <ion-input
+        type="text"
+        *ngIf="direccionSeleccionada && estadoDisponible === 'default'"
+        placeholder="Nota Adicional"
+        style="margin-bottom: 10px;"
+        [(ngModel)]="detalle.nota"
+      ></ion-input>
+    
+      <ion-button
+        id="present-alert"
+        size="small"
+        [disabled]="!direccionSeleccionada || estadoDisponible === 'segment'"
+        (click)="trazarRuta()"
+        expand="block"
+        fill="solid"
+        color="primary"
+        shape="round"
+      >
+        Trazar ruta
+      </ion-button>
+    </ion-card-content>
+    
       <ion-row >
         <ion-col size="6" >
           <ion-button class="letra" id="present-alert"  [disabled]="!iniciarViajeHabilitado" (click)="iniciarViaje()" expand="block" fill="solid" color="primary" shape="round">Iniciar viaje</ion-button>
         </ion-col>
         <ion-col size="6">
-          <ion-button class="letra" id="present-alert" [disabled]="!cancelarViajeHabilitado" (click)="terminarViaje()" padding="3em" expand="block" fill="solid" color="primary" shape="round">Cancelar viaje</ion-button>
+          <ion-button class="letra" id="present-alert" [disabled]="!terminarViajeHabilitado" (click)="terminarViaje()" padding="3em" expand="block" fill="solid" color="primary" shape="round">Terminar viaje</ion-button>
         </ion-col>
       </ion-row>
       

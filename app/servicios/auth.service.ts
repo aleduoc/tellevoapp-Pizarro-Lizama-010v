@@ -45,8 +45,14 @@ export class AuthService {
   //detalle del viaje
   CrearDetalle(newmensaje:IDetalle):Observable<IDetalle>{
     return this.httpclient.post<IDetalles>(`${environment.apiUrl}/detalle`, newmensaje);
+
   }
 
+  deleteDetalleById(id: number): Observable<IDetalles> {
+    return this.httpclient.delete<IDetalles>(`${environment.apiUrl}/detalle/${id}`);
+  }
+  
+  
   getAllViajes():Observable<IDetalles>{
     return this.httpclient.get<IDetalles>(`${environment.apiUrl}/detalle`);
   }

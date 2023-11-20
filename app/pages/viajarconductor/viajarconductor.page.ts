@@ -1,4 +1,4 @@
-// viajarconductor.page.ts
+
 /// <reference types="@types/googlemaps" />
 
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -6,6 +6,10 @@ import { MenuController, ToastController, AlertController } from '@ionic/angular
 import { AuthService } from 'src/app/servicios/auth.service';
 import { Router } from '@angular/router';
 import { GoogleMapsService } from 'src/app/servicios/google-map.service';
+import { ApiCrudService } from 'src/app/servicios/api-crud.service';
+import { IDetalles } from '../interfaces/interfaces';
+import { LoadingController } from '@ionic/angular';
+
 
 declare var google: any;
 
@@ -14,24 +18,23 @@ declare var google: any;
   templateUrl: './viajarconductor.page.html',
   styleUrls: ['./viajarconductor.page.scss'],
 })
-
 export class ViajarconductorPage implements OnInit {
+
+
   async ngOnInit(): Promise<void> {
-    // Llama a la función para obtener la ubicación actual y mostrar el mapa
+    //obtener la ubicación actual y mostrar el mapa
     await this.obtenerYMostrarUbicacionActual();
 
-    // Registra un observador para la ubicación en tiempo real
+    // Registrar observador
     navigator.geolocation.watchPosition(
       (position) => {
-        // Callback cuando se obtiene una nueva posición
         const { latitude, longitude } = position.coords;
         this.lat = latitude;
         this.lng = longitude;
-        // Actualiza el mapa con la nueva ubicación
+        // Actualizar mapa
         this.googleMapsService.actualizarUbicacionMapa({ lat: latitude, lng: longitude });
       },
       (error) => {
-        // Maneja los errores en la obtención de la ubicación en tiempo real
         console.error('Error al obtener la ubicación en tiempo real:', error);
       }
     );
@@ -39,25 +42,56 @@ export class ViajarconductorPage implements OnInit {
 
   trazadoRuta: boolean = false;
   iniciarViajeHabilitado: boolean = false;
-  cancelarViajeHabilitado: boolean = false;
+  terminarViajeHabilitado: boolean = false;
+  estadoDisponible: 'default' | 'segment' = 'default';
+  mapaCargando: boolean = false;
 
-  private obtenerYMostrarUbicacionActual(): void {
-    // Obtiene la ubicación actual
-    this.googleMapsService.obtenerUbicacionActual()
-      .then(async ({ lat, lng }) => {
-        // Asigna la ubicación actual
-        this.lat = lat;
-        this.lng = lng;
-        // Inicializa el mapa con la ubicación actual
-        await this.googleMapsService.initMap(lat, lng, 'map');
-        // Ahora, puedes llamar a initAutocompleteAndDirectionMap
-        this.googleMapsService.initAutocompleteAndDirectionMap('map', { lat, lng });
-      })
-      .catch((error) => {
-        // Maneja los errores en la obtención de la ubicación actual
-        console.error('Error al obtener la ubicación actual:', error);
-      });
+  private async mostrarCarga(): Promise<void> {
+    this.mapaCargando = true;
+
+    const loading = await this.loadingController.create({
+      message: 'Cargando el mapa...', 
+    });
+
+    await loading.present();
   }
+
+  private async ocultarCarga(): Promise<void> {
+    this.mapaCargando = false;
+
+    await this.loadingController.dismiss();
+  }
+
+  private async obtenerYMostrarUbicacionActual(): Promise<void> {
+    try {
+      // Mostrar carga mientras se obtiene la ubicación
+      await this.mostrarCarga();
+
+      const { lat, lng } = await this.googleMapsService.obtenerUbicacionActual();
+
+      // Asignar ubicacion
+      this.lat = lat;
+      this.lng = lng;
+
+      // Inicializa el mapa con la ubicación actual
+      await this.googleMapsService.initMap(lat, lng, 'map');
+
+      // Inicializar la funcionalidad de autocompletado y dirección en el mapa
+      this.googleMapsService.initAutocompleteAndDirectionMap('map', { lat, lng });
+
+    } catch (error) {
+      console.error('Error al obtener la ubicación actual:', error);
+      throw error; 
+    } finally {
+
+      await this.ocultarCarga();
+    }
+  }
+
+
+
+
+  
   
 
   constructor(
@@ -66,7 +100,9 @@ export class ViajarconductorPage implements OnInit {
     public alertcontroller: AlertController,
     private toastcontroller: ToastController,
     private googleMapsService: GoogleMapsService,
-    private router: Router
+    private apicrud: ApiCrudService,
+    private loadingController: LoadingController,
+    private router: Router,
   ) { this.obtainStorage(); }
 
   direccionSeleccionada: boolean = false;
@@ -76,13 +112,14 @@ export class ViajarconductorPage implements OnInit {
     patente:"",
   }
 
-  detalle = {
-    email:"",
+  detalle: IDetalles = {
+    id: 0, 
+    email: "",
     direccion: "",
     precio: 2000,
     nota: "",
     patente: "",
-  }
+  };
   
 
   //Put Detalle
@@ -104,59 +141,101 @@ export class ViajarconductorPage implements OnInit {
 
   @ViewChild('ubicacionInput') ubicacionInput: any;
 
-  mostrarCarga: boolean = false;
+ 
+  
 
   lat = 0; // Latitud inicial
   lng = 0; // Longitud inicial
   inputText = ''; //  texto del input direccion
   predictions: google.maps.places.QueryAutocompletePrediction[] = [];
+
   
-  async trazarRuta() {
-    const inputElement = this.ubicacionInput.el.querySelector('input');
-    inputElement.blur();
+  // ...
 
-    const destination = inputElement.value;
+async trazarRuta() {
+  const inputElement = this.ubicacionInput.el.querySelector('input');
+  inputElement.blur();
 
-    if (!destination) {
-      this.showToast('Por favor, selecciona una dirección.');
-      return;
-    }
+  const destination = inputElement.value;
 
-    const result = await this.googleMapsService.obtenerCoordenadasDireccion(destination);
-
-    if (result) {
-      const origin = { lat: this.lat, lng: this.lng };
-      this.googleMapsService.trazarRuta('map', origin, result);
-      this.detalle.email = this.usuario.email;
-      this.detalle.direccion = destination;
-      this.detalle.patente = this.usuario.patente;
-      this.authservice.CrearDetalle(this.detalle).subscribe();
-      this.trazadoRuta = true;
-      this.iniciarViajeHabilitado = true;
-      this.cancelarViajeHabilitado = false;
-    } else {
-      this.showToast('No se pudo obtener la coordenada de la dirección.');
-    }
-    this.direccionSeleccionada = false;
+  if (!destination) {
+    this.showToast('Por favor, selecciona una dirección.');
+    return;
   }
+
+  const result = await this.googleMapsService.obtenerCoordenadasDireccion(destination);
+
+  if (result) {
+    const origin = { lat: this.lat, lng: this.lng };
+    this.googleMapsService.trazarRuta('map', origin, result);
+    this.detalle.email = this.usuario.email;
+    this.detalle.direccion = destination;
+    this.detalle.patente = this.usuario.patente;
+
+    this.authservice.CrearDetalle(this.detalle).subscribe(
+      (response: IDetalles) => {
+        if (response) {
+          // Actualizamos la propiedad 'id' con el valor de la respuesta
+          this.detalle.id = response.id;
+          this.googleMapsService.trazarRuta('map', origin, result);
+          this.trazadoRuta = true;
+          this.iniciarViajeHabilitado = true;
+          this.terminarViajeHabilitado = false;
+        } else {
+          console.error('Respuesta del servicio vacía o no válida:', response);
+          this.showToast('Error al trazar la ruta');
+        }
+      },
+      (error) => {
+        console.error('Error al crear el detalle', error);
+        this.showToast('Error al trazar la ruta');
+      }
+    );
+  } else {
+    this.showToast('No se pudo obtener la coordenada de la dirección.');
+  }
+  this.direccionSeleccionada = false;
+}
+
+// ...
+
 
   iniciarViaje() {
     // Lógica para iniciar el viaje
     // ...
     // Después de iniciar el viaje, actualiza el estado de los botones
     this.iniciarViajeHabilitado = false;
-    this.cancelarViajeHabilitado = true;
+    this.terminarViajeHabilitado = true;
   }
 
   terminarViaje() {
-    // Lógica para terminar el viaje
+    this.authservice.deleteDetalleById(this.detalle.id).subscribe(
+      async (resp: any) => {
+
+        const alert = await this.alertcontroller.create({
+          header: 'Viaje Terminado',
+          message: 'Volver al mapa',
+          buttons: ['OK']
+        });
   
-    // Después de presionar terminar el viaje, actualiza el estado de los botones
-    this.trazadoRuta = false;
-    this.iniciarViajeHabilitado = false;
-    this.cancelarViajeHabilitado = false;
+        await alert.present();
   
+        //Actualizar pagina
+        await alert.onDidDismiss();
+
+        this.trazadoRuta = false;
+        this.iniciarViajeHabilitado = false;
+        this.terminarViajeHabilitado = false;
+  
+        window.location.reload();
+      },
+      (error) => {
+        console.error("Error al eliminar detalle:", error);
+      }
+    );
   }
+  
+  
   
   
   

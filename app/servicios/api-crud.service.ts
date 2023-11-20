@@ -1,17 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IConductores, IConductor } from '../pages/interfaces/interfaces';
+import { IConductores, IConductor, IDetalle, IDetalles } from '../pages/interfaces/interfaces';
 import { environment } from 'src/environments/environment';
 import { IPasajeros, IPasajero } from '../pages/interfaces/interfaces';
+
+
+
+
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiCrudService {
+  private detalles: IDetalles[] = [];
 
-  constructor(private httpclient: HttpClient) { }
+  constructor(private httpclient: HttpClient) {}
 
   listarConductores():Observable<IConductores>{
     return this.httpclient.get<IConductores>(`${environment.apiUrl}/conductores`);
@@ -21,6 +26,21 @@ export class ApiCrudService {
     return this.httpclient.post<IConductores>(`${environment.apiUrl}/conductores`, NewConductor);
   }
 
+
+  
+  getDetalles(): IDetalles[] {
+    return this.detalles;
+  }
+
+  // Método para eliminar un detalle por ID
+  deleteDetalleById(id: number): void {
+    this.detalles = this.detalles.filter((detalle) => detalle.id !== id);
+  }
+  
+  
+
+  
+  
   listarPasajeros():Observable<IPasajeros>{
     return this.httpclient.get<IPasajeros>(`${environment.apiUrl}/pasajeros`);
   }

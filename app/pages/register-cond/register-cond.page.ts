@@ -82,7 +82,6 @@ export class RegisterCondPage implements OnInit {
             patente: this.userdata[0].patente,
             password: this.userdata[0].password
           };
-          
         }
       });
     }

@@ -14,7 +14,7 @@
       "id": 1,
       "rut": "20.999.888-0",
       "email": "alex.pizarro@duocuc.cl",
-      "sede": "maipu",
+      "sede": "plaza-oeste",
       "patente": "GKMH77",
       "password": "12345678",
       "rol": "Conductor"
@@ -47,68 +47,84 @@
       "id": 2
     },
     {
+      "id": 3,
       "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Avenida Manuel Montt, Providencia, Chile",
-      "precio": "",
-      "nota": "",
-      "patente": "GKMH77",
-      "id": 3
+      "direccion": "Portal Ñuñoa - Avenida José Pedro Alessandri, Ñuñoa, Chile",
+      "precio": 2000,
+      "nota": "afdgd",
+      "patente": "GKMH77"
     },
     {
+      "id": 4,
       "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Graneros, Chile",
+      "direccion": "Gtd Chile - Del Valle, Huechuraba, Chile",
       "precio": 2000,
       "nota": "",
-      "patente": "GKMH77",
-      "id": 4
+      "patente": "GKMH77"
     },
     {
+      "id": 5,
       "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Mallplaza Oeste - Avenida Américo Vespucio, Santiago, Cerrillos, Chile",
-      "precio": 5000,
-      "nota": "sdssd",
-      "patente": "GKMH77",
-      "id": 5
-    },
-    {
-      "email": "nico.lizama@duocuc.cl",
-      "direccion": "Ñuñoa, Chile",
+      "direccion": "Departamental SPORT - Avenida Departamental, Pedro Aguirre Cerda, Chile",
       "precio": 2000,
       "nota": "",
-      "patente": "",
-      "id": 6
+      "patente": "GKMH77"
     },
     {
-      "email": "nico.lizama@duocuc.cl",
-      "direccion": "Desierto de Atacama, Antofagasta, Chile",
+      "id": 6,
+      "email": "alex.pizarro@duocuc.cl",
+      "direccion": "Ñuble, Chile",
       "precio": 2000,
       "nota": "",
-      "patente": "",
-      "id": 7
+      "patente": "GKMH77"
     },
     {
-      "email": "nico.lizama@duocuc.cl",
-      "direccion": "Desierto de Atacama, Puente Alto, Chile",
+      "id": 7,
+      "email": "alex.pizarro@duocuc.cl",
+      "direccion": "Cerro Paranal, Antofagasta, Chile",
       "precio": 2000,
       "nota": "",
-      "patente": "",
-      "id": 8
+      "patente": "GKMH77"
     },
     {
-      "email": "nico.lizama@duocuc.cl",
+      "id": 8,
+      "email": "alex.pizarro@duocuc.cl",
+      "direccion": "Zenteno, Santiago, Chile",
+      "precio": 2000,
+      "nota": "",
+      "patente": "GKMH77"
+    },
+    {
+      "id": 9,
+      "email": "alex.pizarro@duocuc.cl",
+      "direccion": "DERCO Center Carrera - José Miguel Carrera, Santiago, Chile",
+      "precio": 2000,
+      "nota": "",
+      "patente": "GKMH77"
+    },
+    {
+      "id": 10,
+      "email": "alex.pizarro@duocuc.cl",
+      "direccion": "Gtd Chile (Edificio corporativo) - Moneda, Santiago, Chile",
+      "precio": 2000,
+      "nota": "",
+      "patente": "GKMH77"
+    },
+    {
+      "id": 11,
+      "email": "alex.pizarro@duocuc.cl",
+      "direccion": "Certeneja Soccer Villa Alegre, Villa Alegre, Chile",
+      "precio": 2000,
+      "nota": "",
+      "patente": "GKMH77"
+    },
+    {
+      "id": 12,
+      "email": "alex.pizarro@duocuc.cl",
       "direccion": "Futaleufu, Futaleufú, Chile",
       "precio": 2000,
       "nota": "",
-      "patente": "",
-      "id": 9
-    },
-    {
-      "email": "nico.lizama@duocuc.cl",
-      "direccion": "Valparaíso, Chile",
-      "precio": null,
-      "nota": "",
-      "patente": "",
-      "id": 10
+      "patente": "GKMH77"
     }
   ]
 }
