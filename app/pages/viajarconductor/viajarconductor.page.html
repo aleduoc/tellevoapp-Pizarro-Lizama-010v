@@ -45,12 +45,7 @@
     
     <ion-item>
       <ion-input
-        type="text"
-        placeholder="¿Hacia dónde te diriges?"
-        id="ubicacion"
-        #ubicacionInput
-        name="ubicacion"
-        class="input"
+        type="text" placeholder="¿Hacia dónde te diriges?" id="ubicacion" #ubicacionInput name="ubicacion" class="input"
         [(ngModel)]="inputText"
         (ionInput)="searchPredictions()"
         [disabled]="estadoDisponible === 'segment'"
