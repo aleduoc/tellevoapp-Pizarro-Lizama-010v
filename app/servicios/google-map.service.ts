@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environments } from 'src/environments/environment';
 
+
+
 declare var google: any;
 
 @Injectable({
@@ -115,6 +117,33 @@ export class GoogleMapsService {
       });
     });
   }
+  getTravelTime(origin: { lat: number, lng: number }, destination: { lat: number, lng: number }): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      const distanceMatrixService = new google.maps.DistanceMatrixService();
+      
+      const origins = [new google.maps.LatLng(origin.lat, origin.lng)];
+      const destinations = [new google.maps.LatLng(destination.lat, destination.lng)];
+  
+      distanceMatrixService.getDistanceMatrix(
+        {
+          origins: origins,
+          destinations: destinations,
+          travelMode: 'DRIVING'
+        },
+        (response: any, status: any) => {
+          if (status === 'OK') {
+            resolve(response);
+          } else {
+            console.error('Error al obtener el tiempo estimado de viaje:', status, response);
+            reject('Error al obtener la matriz de distancias: ' + status);
+          }
+        }
+      );
+    });
+  }
+
+  
+  
 
   trazarRuta(mapId: string, origin: { lat: number, lng: number }, destination: { lat: number, lng: number }): void {
     const map = new google.maps.Map(document.getElementById(mapId), {
@@ -132,8 +161,19 @@ export class GoogleMapsService {
       travelMode: 'DRIVING'
     };
 
-    directionsService.route(request, (result: any, status: any) => {
+    directionsService.route(request, async (result: any, status: any) => {
       if (status === 'OK') {
+        const travelResponse = await this.getTravelTime(origin, destination);
+  
+        if (travelResponse && travelResponse.status === 'OK') {
+          const travelTimeInSeconds = travelResponse.rows[0].elements[0].duration.value;
+          const travelTimeInMinutes = Math.round(travelTimeInSeconds / 60);
+  
+          console.log('Tiempo estimado de viaje en auto: ' + travelTimeInMinutes + ' minutos');
+        } else {
+          console.error('Error al obtener el tiempo estimado de viaje:', travelResponse);
+        }
+  
         directionsRenderer.setDirections(result);
       } else {
         console.error('Error al trazar la ruta:', status);

@@ -14,7 +14,7 @@
       "id": 1,
       "rut": "20.999.888-0",
       "email": "alex.pizarro@duocuc.cl",
-      "sede": "plaza-oeste",
+      "sede": "maipu",
       "patente": "GKMH77",
       "password": "12345678",
       "rol": "Conductor"
@@ -58,70 +58,6 @@
       "id": 4,
       "email": "alex.pizarro@duocuc.cl",
       "direccion": "Gtd Chile - Del Valle, Huechuraba, Chile",
-      "precio": 2000,
-      "nota": "",
-      "patente": "GKMH77"
-    },
-    {
-      "id": 5,
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Departamental SPORT - Avenida Departamental, Pedro Aguirre Cerda, Chile",
-      "precio": 2000,
-      "nota": "",
-      "patente": "GKMH77"
-    },
-    {
-      "id": 6,
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Ñuble, Chile",
-      "precio": 2000,
-      "nota": "",
-      "patente": "GKMH77"
-    },
-    {
-      "id": 7,
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Cerro Paranal, Antofagasta, Chile",
-      "precio": 2000,
-      "nota": "",
-      "patente": "GKMH77"
-    },
-    {
-      "id": 8,
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Zenteno, Santiago, Chile",
-      "precio": 2000,
-      "nota": "",
-      "patente": "GKMH77"
-    },
-    {
-      "id": 9,
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "DERCO Center Carrera - José Miguel Carrera, Santiago, Chile",
-      "precio": 2000,
-      "nota": "",
-      "patente": "GKMH77"
-    },
-    {
-      "id": 10,
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Gtd Chile (Edificio corporativo) - Moneda, Santiago, Chile",
-      "precio": 2000,
-      "nota": "",
-      "patente": "GKMH77"
-    },
-    {
-      "id": 11,
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Certeneja Soccer Villa Alegre, Villa Alegre, Chile",
-      "precio": 2000,
-      "nota": "",
-      "patente": "GKMH77"
-    },
-    {
-      "id": 12,
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Futaleufu, Futaleufú, Chile",
       "precio": 2000,
       "nota": "",
       "patente": "GKMH77"

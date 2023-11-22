@@ -29,6 +29,13 @@
 <ion-card id="map" style="height: 10em; width: 16em;">
   <ion-spinner *ngIf="mapaCargando"></ion-spinner>
 </ion-card>
+<ion-card>
+  <div *ngIf="tiempoEstimadoViaje !== null" style="margin: auto;">
+    Tiempo estimado de viaje: {{ tiempoEstimadoViaje }} minutos
+  </div>
+</ion-card>
+
+
 
   <div class="ion-padding">
 
