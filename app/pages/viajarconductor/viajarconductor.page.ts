@@ -20,6 +20,7 @@ declare var google: any;
 })
 export class ViajarconductorPage implements OnInit {
 
+  tiempoEstimadoViaje: number | null = null; 
 
   async ngOnInit(): Promise<void> {
     //obtener la ubicación actual y mostrar el mapa
@@ -39,6 +40,8 @@ export class ViajarconductorPage implements OnInit {
       }
     );
   }
+
+  
 
   trazadoRuta: boolean = false;
   iniciarViajeHabilitado: boolean = false;
@@ -149,8 +152,38 @@ export class ViajarconductorPage implements OnInit {
   inputText = ''; //  texto del input direccion
   predictions: google.maps.places.QueryAutocompletePrediction[] = [];
 
+
+  async obtenerTiempoEstimadoViaje(destination: string): Promise<void> {
+    try {
+      const origin = { lat: this.lat, lng: this.lng };
+      const result = await this.googleMapsService.obtenerCoordenadasDireccion(destination);
   
-  // ...
+      if (result) {
+        const response = await this.googleMapsService.getTravelTime(origin, result);
+  
+        console.log('Respuesta completa de la API de Google Maps:', response);
+  
+        if (response && response.rows && response.rows.length > 0) {
+          const element = response.rows[0].elements[0];
+  
+          if (element && element.duration && element.duration.value) {
+            const travelTimeInSeconds = element.duration.value;
+            this.tiempoEstimadoViaje = Math.round(travelTimeInSeconds / 60);
+            console.log('Tiempo estimado de viaje en segundos:', travelTimeInSeconds);
+          } else {
+            console.error('No se pudo obtener el tiempo estimado de viaje desde la respuesta:', element);
+          }
+        } else {
+          console.error('Respuesta incorrecta de la API de Google Maps:', response);
+        }
+      }
+    } catch (error) {
+      console.error('Error al obtener el tiempo estimado de viaje:', error);
+    }
+  }
+  
+  
+  
 
 async trazarRuta() {
   const inputElement = this.ubicacionInput.el.querySelector('input');
@@ -171,6 +204,8 @@ async trazarRuta() {
     this.detalle.email = this.usuario.email;
     this.detalle.direccion = destination;
     this.detalle.patente = this.usuario.patente;
+
+    await this.obtenerTiempoEstimadoViaje(destination);
 
     this.authservice.CrearDetalle(this.detalle).subscribe(
       (response: IDetalles) => {

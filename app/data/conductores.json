@@ -31,83 +31,35 @@
   ],
   "detalle": [
     {
-      "id": 5,
       "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Departamental SPORT - Avenida Departamental, Pedro Aguirre Cerda, Chile",
+      "direccion": "Avenida Manuel Montt, Providencia, Chile",
+      "precio": "50000",
+      "nota": "Aqui toy shushetu",
+      "patente": "3287283723",
+      "id": 1
+    },
+    {
+      "email": "alex.pizarro@duocuc.cl",
+      "direccion": "Avenida Los Cerrillos, Cerrillos, Chile",
+      "precio": "",
+      "nota": "",
+      "patente": "GKMH77",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "email": "alex.pizarro@duocuc.cl",
+      "direccion": "Portal Ñuñoa - Avenida José Pedro Alessandri, Ñuñoa, Chile",
+      "precio": 2000,
+      "nota": "afdgd",
+      "patente": "GKMH77"
+    },
+    {
+      "id": 4,
+      "email": "alex.pizarro@duocuc.cl",
+      "direccion": "Gtd Chile - Del Valle, Huechuraba, Chile",
       "precio": 2000,
       "nota": "",
-      "patente": "GKMH77"
-    },
-    {
-      "id": 6,
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Ñuble, Chile",
-      "precio": 2000,
-      "nota": "",
-      "patente": "GKMH77"
-    },
-    {
-      "id": 7,
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Cerro Paranal, Antofagasta, Chile",
-      "precio": 2000,
-      "nota": "",
-      "patente": "GKMH77"
-    },
-    {
-      "id": 8,
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Zenteno, Santiago, Chile",
-      "precio": 2000,
-      "nota": "",
-      "patente": "GKMH77"
-    },
-    {
-      "id": 9,
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "DERCO Center Carrera - José Miguel Carrera, Santiago, Chile",
-      "precio": 2000,
-      "nota": "",
-      "patente": "GKMH77"
-    },
-    {
-      "id": 10,
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Gtd Chile (Edificio corporativo) - Moneda, Santiago, Chile",
-      "precio": 2000,
-      "nota": "",
-      "patente": "GKMH77"
-    },
-    {
-      "id": 11,
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Certeneja Soccer Villa Alegre, Villa Alegre, Chile",
-      "precio": 2000,
-      "nota": "",
-      "patente": "GKMH77"
-    },
-    {
-      "id": 12,
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Futaleufu, Futaleufú, Chile",
-      "precio": 2000,
-      "nota": "",
-      "patente": "GKMH77"
-    },
-    {
-      "id": 13,
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Duoc UC: Sede Maipu - Avenida Esquina Blanca, Maipú, Chile",
-      "precio": 1500,
-      "nota": "Auto Rojo",
-      "patente": "GKMH77"
-    },
-    {
-      "id": 14,
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Santa Amanda 890, Santiago, Maipú, Chile",
-      "precio": 5000,
-      "nota": "Dos Asientos disponibles",
       "patente": "GKMH77"
     }
   ]
