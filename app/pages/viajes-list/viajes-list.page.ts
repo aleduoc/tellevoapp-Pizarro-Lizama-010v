@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-viajes-list',
@@ -19,10 +20,16 @@ export class ViajesListPage implements OnInit {
   }
 
   constructor(private router: Router,
-              private authservice: AuthService) { }
+              private authservice: AuthService,
+              private menuController: MenuController) { }
 
   ngOnInit() {
   }
+
+  MostrarMenu(){
+    this.menuController.open('first');
+  }
+
   ionViewWillEnter(){
     this.getViajeById(this.getIdFromUrl());
   }

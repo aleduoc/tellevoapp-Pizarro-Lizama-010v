@@ -14,7 +14,7 @@
       "id": 1,
       "rut": "20.999.888-0",
       "email": "alex.pizarro@duocuc.cl",
-      "sede": "plaza-oeste",
+      "sede": "maipu",
       "patente": "GKMH77",
       "password": "12345678",
       "rol": "Conductor"
@@ -30,38 +30,6 @@
     }
   ],
   "detalle": [
-    {
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Avenida Manuel Montt, Providencia, Chile",
-      "precio": "50000",
-      "nota": "Aqui toy shushetu",
-      "patente": "3287283723",
-      "id": 1
-    },
-    {
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Avenida Los Cerrillos, Cerrillos, Chile",
-      "precio": "",
-      "nota": "",
-      "patente": "GKMH77",
-      "id": 2
-    },
-    {
-      "id": 3,
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Portal Ñuñoa - Avenida José Pedro Alessandri, Ñuñoa, Chile",
-      "precio": 2000,
-      "nota": "afdgd",
-      "patente": "GKMH77"
-    },
-    {
-      "id": 4,
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Gtd Chile - Del Valle, Huechuraba, Chile",
-      "precio": 2000,
-      "nota": "",
-      "patente": "GKMH77"
-    },
     {
       "id": 5,
       "email": "alex.pizarro@duocuc.cl",
@@ -124,6 +92,22 @@
       "direccion": "Futaleufu, Futaleufú, Chile",
       "precio": 2000,
       "nota": "",
+      "patente": "GKMH77"
+    },
+    {
+      "id": 13,
+      "email": "alex.pizarro@duocuc.cl",
+      "direccion": "Duoc UC: Sede Maipu - Avenida Esquina Blanca, Maipú, Chile",
+      "precio": 1500,
+      "nota": "Auto Rojo",
+      "patente": "GKMH77"
+    },
+    {
+      "id": 14,
+      "email": "alex.pizarro@duocuc.cl",
+      "direccion": "Santa Amanda 890, Santiago, Maipú, Chile",
+      "precio": 5000,
+      "nota": "Dos Asientos disponibles",
       "patente": "GKMH77"
     }
   ]
