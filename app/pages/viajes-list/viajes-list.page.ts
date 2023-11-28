@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { Router } from '@angular/router';
-import { MenuController } from '@ionic/angular';
+import { MenuController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-viajes-list',
@@ -21,7 +21,8 @@ export class ViajesListPage implements OnInit {
 
   constructor(private router: Router,
               private authservice: AuthService,
-              private menuController: MenuController) { }
+              private menuController: MenuController,
+              private alertController: AlertController) { }
 
   ngOnInit() {
   }
@@ -54,6 +55,30 @@ export class ViajesListPage implements OnInit {
         }
       }
     )
+  }
+
+  terminarViaje() {
+    this.authservice.deleteDetalleById(this.detalle.id).subscribe(
+      async (resp: any) => {
+
+        const alert = await this.alertController.create({
+          header: 'TeLlevoAPP',
+          message: 'Gracias por viajar junto a nosotros!',
+          buttons: ['OK']
+        });
+  
+        await alert.present();
+  
+        //Actualizar pagina
+        await alert.onDidDismiss();
+
+  
+        window.location.reload();
+      },
+      (error) => {
+        console.error("Error al eliminar detalle:", error);
+      }
+    );
   }
 
 }

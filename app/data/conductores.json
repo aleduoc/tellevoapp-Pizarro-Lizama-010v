@@ -31,35 +31,19 @@
   ],
   "detalle": [
     {
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Avenida Manuel Montt, Providencia, Chile",
-      "precio": "50000",
-      "nota": "Aqui toy shushetu",
-      "patente": "3287283723",
-      "id": 1
-    },
-    {
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Avenida Los Cerrillos, Cerrillos, Chile",
-      "precio": "",
-      "nota": "",
-      "patente": "GKMH77",
-      "id": 2
-    },
-    {
-      "id": 3,
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Portal Ñuñoa - Avenida José Pedro Alessandri, Ñuñoa, Chile",
-      "precio": 2000,
-      "nota": "afdgd",
-      "patente": "GKMH77"
-    },
-    {
       "id": 4,
       "email": "alex.pizarro@duocuc.cl",
       "direccion": "Gtd Chile - Del Valle, Huechuraba, Chile",
       "precio": 2000,
       "nota": "",
+      "patente": "GKMH77"
+    },
+    {
+      "id": 5,
+      "email": "alex.pizarro@duocuc.cl",
+      "direccion": "Santa Amanda 890, Santiago, Maipú, Chile",
+      "precio": 2000,
+      "nota": "Auto Rojo, Dos Passajeros disponibles",
       "patente": "GKMH77"
     }
   ]
