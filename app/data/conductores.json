@@ -29,22 +29,5 @@
       "id": 2
     }
   ],
-  "detalle": [
-    {
-      "id": 4,
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Gtd Chile - Del Valle, Huechuraba, Chile",
-      "precio": 2000,
-      "nota": "",
-      "patente": "GKMH77"
-    },
-    {
-      "id": 5,
-      "email": "alex.pizarro@duocuc.cl",
-      "direccion": "Santa Amanda 890, Santiago, Maipú, Chile",
-      "precio": 2000,
-      "nota": "Auto Rojo, Dos Passajeros disponibles",
-      "patente": "GKMH77"
-    }
-  ]
+  "detalle": []
 }

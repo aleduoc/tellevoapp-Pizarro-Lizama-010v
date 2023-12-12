@@ -57,9 +57,7 @@ export class ViajesListPage implements OnInit {
     )
   }
 
-  terminarViaje() {
-    this.authservice.deleteDetalleById(this.detalle.id).subscribe(
-      async (resp: any) => {
+ async terminarViaje() {
 
         const alert = await this.alertController.create({
           header: 'TeLlevoAPP',
@@ -74,11 +72,6 @@ export class ViajesListPage implements OnInit {
 
   
         window.location.reload();
-      },
-      (error) => {
-        console.error("Error al eliminar detalle:", error);
       }
-    );
-  }
 
 }

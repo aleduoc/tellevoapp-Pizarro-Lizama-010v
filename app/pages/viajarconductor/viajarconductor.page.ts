@@ -236,38 +236,18 @@ async trazarRuta() {
 
 
   iniciarViaje() {
-    // Lógica para iniciar el viaje
-    // ...
-    // Después de iniciar el viaje, actualiza el estado de los botones
+    this.authservice.deleteDetalleById(this.detalle.id).subscribe(
+    );
     this.iniciarViajeHabilitado = false;
     this.terminarViajeHabilitado = true;
   }
 
-  terminarViaje() {
-    this.authservice.deleteDetalleById(this.detalle.id).subscribe(
-      async (resp: any) => {
+    terminarViaje() {
 
-        const alert = await this.alertcontroller.create({
-          header: 'Viaje Terminado',
-          message: 'Volver al mapa',
-          buttons: ['OK']
-        });
-  
-        await alert.present();
-  
-        //Actualizar pagina
-        await alert.onDidDismiss();
-
-        this.trazadoRuta = false;
-        this.iniciarViajeHabilitado = false;
-        this.terminarViajeHabilitado = false;
-  
-        window.location.reload();
-      },
-      (error) => {
-        console.error("Error al eliminar detalle:", error);
-      }
-    );
+    this.trazadoRuta = false;
+    this.iniciarViajeHabilitado = false;
+    this.terminarViajeHabilitado = false;
+    window.location.reload();
   }
   
   

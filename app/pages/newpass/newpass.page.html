@@ -23,17 +23,29 @@
     <div class="ion-padding">
 
       <form #formulario="ngForm" (keyup.enter)="Confirmar()">
-
-
         <ion-item>
-          <ion-input type="email" placeholder="correo institucional" name="email" class="input" [(ngModel)]="usuario.email"></ion-input>
+          <ion-input type="email" placeholder="correo institucional" name="email" class="input" [(ngModel)]="email"></ion-input>
           <ion-icon name="mail-outline"></ion-icon>
         </ion-item>
-
-        <ion-button [routerLink]="['/inicio']" size="small" (click)="MensajeInicio()" expand="block" fill="solid" color="primary" shape="round">
+      
+        <ion-item>
+          <ion-input type="password" placeholder="nueva contraseña" name="password" class="input" [(ngModel)]="nuevaPassword"></ion-input>
+          <ion-icon name="mail-outline"></ion-icon>
+        </ion-item>
+      
+        <!-- Agrega un botón para cambiar el rol -->
+        <ion-segment mode="md" color="primary" class="custom-segment">
+          <ion-segment-button (click)="toggleRol()" [class.active]="esPasajero">
+            perfil: {{ esPasajero ? 'Pasajero' : 'Conductor' }}
+          </ion-segment-button>
+        </ion-segment>
+      
+        <!-- Utiliza un solo botón para enviar la solicitud -->
+        <ion-button size="small" expand="block" fill="solid" color="primary" shape="round" (click)="updatePassword(email, nuevaPassword)">
           Enviar
         </ion-button>
       </form>
+      
 
       
     </div>
