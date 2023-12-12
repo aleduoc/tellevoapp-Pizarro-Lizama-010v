@@ -30,7 +30,7 @@
       
         <ion-item>
           <ion-input type="password" placeholder="nueva contraseña" name="password" class="input" [(ngModel)]="nuevaPassword"></ion-input>
-          <ion-icon name="mail-outline"></ion-icon>
+          <ion-icon name="lock-closed-outline"></ion-icon>
         </ion-item>
       
         <!-- Agrega un botón para cambiar el rol -->
@@ -41,7 +41,7 @@
         </ion-segment>
       
         <!-- Utiliza un solo botón para enviar la solicitud -->
-        <ion-button size="small" expand="block" fill="solid" color="primary" shape="round" (click)="updatePassword(email, nuevaPassword)">
+        <ion-button size="small" expand="block" fill="solid"  [disabled]="nuevaPassword.length<8" color="primary" shape="round" (click)="updatePassword(email, nuevaPassword)">
           Enviar
         </ion-button>
       </form>

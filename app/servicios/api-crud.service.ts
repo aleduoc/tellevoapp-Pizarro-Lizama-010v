@@ -16,14 +16,16 @@ import { IPasajeros, IPasajero } from '../pages/interfaces/interfaces';
 export class ApiCrudService {
   private detalles: IDetalles[] = [];
 
+  private baseUrl = 'https://my-json-server.typicode.com/aleduoc/apiconductores';
+
   constructor(private httpclient: HttpClient) {}
 
   listarConductores():Observable<IConductores>{
-    return this.httpclient.get<IConductores>(`${environment.apiUrl}/conductores`);
+    return this.httpclient.get<IConductores>(`${this.baseUrl}/conductores`);
   }
 
   crearConductor(NewConductor:IConductor):Observable<IConductores>{
-    return this.httpclient.post<IConductores>(`${environment.apiUrl}/conductores`, NewConductor);
+    return this.httpclient.post<IConductores>(`${this.baseUrl }/conductores`, NewConductor);
   }
 
 
@@ -42,35 +44,35 @@ export class ApiCrudService {
   
   
   listarPasajeros():Observable<IPasajeros>{
-    return this.httpclient.get<IPasajeros>(`${environment.apiUrl}/pasajeros`);
+    return this.httpclient.get<IPasajeros>(`${this.baseUrl }/pasajeros`);
   }
 
   crearPasajero(NewPasajero:IPasajero):Observable<IPasajeros>{
-    return this.httpclient.post<IPasajeros>(`${environment.apiUrl}/pasajeros`, NewPasajero);
+    return this.httpclient.post<IPasajeros>(`${this.baseUrl }/pasajeros`, NewPasajero);
   }
  
   //Actualizar Perfil
   buscarPasajero(email:string):Observable<IPasajeros>{
-    return this.httpclient.get<IPasajeros>(`${environment.apiUrl}/pasajeros/?email=${email}`);
+    return this.httpclient.get<IPasajeros>(`${this.baseUrl }/pasajeros/?email=${email}`);
   }
   buscarConductor(email:string):Observable<IConductores>{
-    return this.httpclient.get<IConductores>(`${environment.apiUrl}/conductores/?email=${email}`);
+    return this.httpclient.get<IConductores>(`${this.baseUrl }/conductores/?email=${email}`);
   }
 
   ActualizarPasajero(pasajero:any):Observable<IPasajeros>{
-    return this.httpclient.put<IPasajeros>(`${environment.apiUrl}/pasajeros/${pasajero.id}`, pasajero);
+    return this.httpclient.put<IPasajeros>(`${this.baseUrl }/pasajeros/${pasajero.id}`, pasajero);
   }
 
   
   ActualizarConductor(conductor:any):Observable<IConductores>{
-    return this.httpclient.put<IConductores>(`${environment.apiUrl}/conductores/${conductor.id}`, conductor);
+    return this.httpclient.put<IConductores>(`${this.baseUrl }/conductores/${conductor.id}`, conductor);
   }
 
   verificarCorreoExistente(correo: string): Observable<any> {
-    return this.httpclient.get<any>(`${environment.apiUrl}/pasajeros/?email=${correo}`);
+    return this.httpclient.get<any>(`${this.baseUrl }/pasajeros/?email=${correo}`);
   }
   verificarCorreoExistenteAlumno(correo: string): Observable<any> {
-    return this.httpclient.get<any>(`${environment.apiUrl}/conductores/?email=${correo}`);
+    return this.httpclient.get<any>(`${this.baseUrl }/conductores/?email=${correo}`);
   }
 
 }

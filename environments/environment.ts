@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3300'
+  apiUrl: 'https://my-json-server.typicode.com/aleduoc/apiconductores'
 };
 export const environments = {
   production: false,
